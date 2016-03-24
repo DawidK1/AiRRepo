@@ -4,26 +4,44 @@
 void insert(node* root, node* new_node)
 {
 	node* temp=root;
+	int not_success=1;
 	
-	if(strcoll(temp->nazwisko, new_node->nazwisko)>0)
+	while(not_success)
 	{
-		temp->lewy_syn=(node*)malloc(sizeof(node));
-		
-		if(temp->lewy_syn != NULL)
-		{
-			temp->lewy_syn=new_node;
-			return;
+		if(strcoll(temp->nazwisko, new_node->nazwisko)>0)
+		{			
+			if(temp->lewy_syn == NULL)
+			{
+				temp->lewy_syn=(node*)malloc(sizeof(node));
+				if(temp->lewy_syn != NULL)
+				{
+					temp->lewy_syn=new_node;
+					not_success=0;
+					return;
+				}
+			}
+			else
+			{
+				temp=temp->lewy_syn;
+			}
 		}
-	}
 	
-	if(strcoll(temp->nazwisko, new_node->nazwisko)<=0)
-	{
-		temp->prawy_syn=(node*)malloc(sizeof(node));
-		
-		if(temp->prawy_syn != NULL)
-		{
-			temp->prawy_syn=new_node;
-			return;
+		if(strcoll(temp->nazwisko, new_node->nazwisko)<=0)
+		{			
+			if(temp->prawy_syn == NULL)
+			{
+				temp->prawy_syn=(node*)malloc(sizeof(node));
+				if(temp->prawy_syn != NULL)
+				{
+					temp->prawy_syn=new_node;
+					not_success=0;
+					return;
+				}
+			}
+			else
+			{
+				temp=temp->prawy_syn;
+			}
 		}
 	}
 }
