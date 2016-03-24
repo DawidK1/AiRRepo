@@ -13,7 +13,7 @@ typedef struct node{
 	char nazwisko[30];
 	char imie[30];
 	int numer_telefonu;
-}node;
+}root;
 
 void insert(node* root, node* new_node);
 void in_order(node* root);
