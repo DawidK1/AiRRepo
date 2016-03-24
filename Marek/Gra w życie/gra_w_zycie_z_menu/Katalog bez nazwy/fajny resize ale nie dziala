@@ -1,0 +1,59 @@
+cell** resize(cell*** tab, int old_col, int old_row, int new_col, int new_row)
+{
+	int i,j;
+	cell** new_tab=NULL;
+	new_tab=create(new_col,new_row); //caly new_tab jest juz wypelniony zerami
+	
+	if(new_col>old_col && new_row>old_row)
+	{
+		for(i=0; i<old_row; i++)
+		{
+			for(j=0; j<old_col; j++)
+			{
+				new_tab[i][j].status=(*tab)[i][j].status;
+				new_tab[i][j].surround=(*tab)[i][j].surround;
+			}
+		}
+	}
+	
+	if(new_col<old_col && new_row<old_row)
+	{
+		for(i=0; i<new_row; i++)
+		{
+			for(j=0; j<new_col; j++)
+			{
+				new_tab[i][j].status=(*tab)[i][j].status;
+				new_tab[i][j].surround=(*tab)[i][j].surround;
+			}
+		}
+	}				//
+	
+	if(new_col>old_col && new_row<old_row)
+	{
+		for(i=0; i<new_row; i++)
+		{
+			for(j=0; j<new_col; j++)
+			{
+				new_tab[i][j].status=(*tab)[i][j].status;
+				new_tab[i][j].surround=(*tab)[i][j].surround;
+			}
+		}
+	}
+	
+	if(new_col<old_col && new_row>old_row)
+	{
+		for(i=0; i<old_row; i++)
+		{
+			for(j=0; j<new_col; j++)
+			{
+				new_tab[i][j].status=(*tab)[i][j].status;
+				new_tab[i][j].surround=(*tab)[i][j].surround;
+			}
+		}
+	}
+	
+	delet(tab, old_row); //usuwam stara tablice
+	return new_tab;
+}
+
+

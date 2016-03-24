@@ -1,0 +1,89 @@
+#include "array.h"
+#include "game.h"
+
+#include <unistd.h>
+int main()
+{
+	int kolumny=30, wiersze=10;
+	cell** board=NULL;
+	board=create(kolumny, wiersze);
+	
+	//show_array(board, kolumny, wiersze);
+	printf("\n");
+	
+	//kolumny=kolumny+2;
+	//wiersze=wiersze+3;
+	//board=resize(&board, kolumny, wiersze, kolumny+2 , wiersze-2);
+	printf("\n");
+	
+	
+	
+	
+	
+	/*
+	int c=0, r=0;
+	cell alive={1, 0};
+	char* name="danewej.txt";
+	FILE *plik=NULL;
+	plik=fopen(name, "r");
+	fscanf(plik, "%d", &r);
+	fscanf(plik, "%d", &c);
+	printf("%d %d\n", r, c);
+	insert(board, r, c, alive);
+	fclose(plik);
+	
+	show_array(board, kolumny, wiersze);
+	*/
+	file_open(&board, &kolumny, &wiersze, "danewej.txt");
+	show_array(board, kolumny, wiersze);
+	/*int i, j;
+	for(i=0; i<wiersze; i++)
+	{
+		for(j=0; j<kolumny; j++)
+		{
+			printf("%2d", board[i][j].status);
+		}
+		printf("\n");
+	}
+	show_array(board, kolumny, wiersze);
+	*/
+	
+	
+	/*for(i=0; i<wiersze; i++)
+	{
+		for(j=0; j<kolumny; j++)
+		{
+			printf("%2d", board[i][j].status);
+		}
+		printf("\n");
+	}
+	*/
+	
+	/*
+	for(i=0; i<wiersze; i++)
+	{
+		for(j=0; j<kolumny; j++)
+		{
+			printf("%2d", board[i][j].status);
+		}
+		printf("\n");
+	}
+	*/
+	
+	
+	/*
+	int i=0;
+	while(i<10)
+	{
+	system("clear");
+	printf("\n\n\n");
+	rand_data(board, kolumny, wiersze);
+	show_array(board, kolumny, wiersze);
+	
+	i++;
+	printf("\n\n licznik:%d\n\n", i);
+	
+	usleep(1000000);
+	}*/
+	return 0;
+}

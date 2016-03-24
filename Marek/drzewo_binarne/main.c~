@@ -5,7 +5,7 @@ int main()
 
 	node root={NULL, NULL, NULL, "Nowak", "Jan", 123};
 	node new={NULL, NULL, NULL, "Piekarz", "Marek", 456};
-	node new2={NULL, NULL, NULL, "Zzz", "Nie wiem jakie imie ..", 789};
+	node new2={NULL, NULL, NULL, "Aaa", "Nie wiem jakie imie ..", 789};
 	
 	insert(&root, &new);
 	insert(&root, &new2);
