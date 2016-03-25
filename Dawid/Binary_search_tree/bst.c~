@@ -65,13 +65,8 @@ if(root != NULL)
 	}
 
 }
-//////////////////////////////////////////////
-void delete_tree(node* root)
-{
 
-//do napisania
-;
-}
+
 
 
 

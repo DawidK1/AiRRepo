@@ -6,22 +6,22 @@ int main(void)
 {
 
 node data0 =  {
-NULL, NULL, 6, "zzzz", "haa"
+NULL, NULL, 6, "zzzz"
 };
 node data1 =  {
-NULL, NULL, 1, "zzzjz", "jaa"
+NULL, NULL, 1, "zzzjz"
 };
 node data2 =  {
-NULL, NULL, 2, "azzzz", "faa"
+NULL, NULL, 2, "azzzz"
 }
 ;node data3 =  {
-NULL, NULL, 3, "bzzzz", "daa"
+NULL, NULL, 3, "bzzzz"
 }
 ;node data4 =  {
-NULL, NULL, 4, "czzzz", "baa"
+NULL, NULL, 4, "czzzz"
 }
 ;node data5 =  {
-NULL, NULL, 5, "dzzzz", "aaa"
+NULL, NULL, 5, "dzzzz"
 }
 ;
 

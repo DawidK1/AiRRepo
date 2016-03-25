@@ -19,6 +19,4 @@ void insert_node(node* root, node new_data);
 
 void print_tree(node* root);
 
-void delete_tree(node* root);
-
 #endif // BST_H_INCLUDED
