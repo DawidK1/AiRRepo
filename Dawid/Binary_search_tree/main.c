@@ -21,7 +21,7 @@ NULL, NULL, 3, "bzzzz", "daa"
 NULL, NULL, 4, "czzzz", "baa"
 }
 ;node data5 =  {
-NULL, NULL, 5, "dzzzz", "aaa"
+NULL, NULL, 5, "dzzzz", "Aaa"
 }
 ;
 
@@ -38,6 +38,13 @@ insert_node(root, data3);
 insert_node(root, data5);
 print_tree(root);
 
+printf("MAX\n");
+print_tree(find_max(root));
+printf("MIN\n");
+print_tree(find_min(root));
+
+delete_tree(root);
+root = NULL;
 
 return 0;
 }

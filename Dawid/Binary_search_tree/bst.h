@@ -21,4 +21,11 @@ void print_tree(node* root);
 
 void delete_tree(node* root);
 
+void delete_tree(node* root);
+
+node* find_min(node* root);
+
+node* find_max(node* root);
+
+
 #endif // BST_H_INCLUDED

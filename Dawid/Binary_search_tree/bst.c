@@ -56,10 +56,10 @@ if(root != NULL)
 	{
 	print_tree(root->left);
 
-	printf("%s", root->l_name);
+	printf("Nazwisko: %s", root->l_name);
 	printf(" ");
-	printf("%s",root->f_name);
-	printf(" %d\n", root->number);
+	printf("\nImie: %s",root->f_name);
+	printf("\n Numer telefonu: %d\n", root->number);
 
 	print_tree(root->right);
 	}
@@ -68,10 +68,38 @@ if(root != NULL)
 //////////////////////////////////////////////
 void delete_tree(node* root)
 {
+if(root != NULL)
+	{
+	delete_tree(root->left);
+	delete_tree(root->right);
 
-//do napisania
-;
+	printf("\nDeleting %s", root->l_name);
+	free(root);
+	
+	}
 }
+/////////////////////////////////////////////////////
+
+node* find_min(node* root)
+{
+if(root->left != NULL)
+	return find_min(root->left);
+else
+	return root;
+}
+//////////////////////////////////////////////////////
+
+node* find_max(node* root)
+
+{
+node* temp_root = root;
+
+while(temp_root->right != NULL)
+	temp_root = temp_root->right;
+
+return temp_root;
+}
+//////////////////////////////////////////////////////
 
 
 
