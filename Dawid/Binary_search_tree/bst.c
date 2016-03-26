@@ -1,5 +1,8 @@
 #include "bst.h"
 
+#define RESET_COUNTING 1
+#define COUNT 2
+#define READ 3
 
 void insert_node(node* root, node new_data)
 {
@@ -59,7 +62,7 @@ if(root != NULL)
 	printf("Nazwisko: %s", root->l_name);
 	printf(" ");
 	printf("\nImie: %s",root->f_name);
-	printf("\n Numer telefonu: %d\n", root->number);
+	printf("\nNumer telefonu: %d\n-----------------\n", root->number);
 
 	print_tree(root->right);
 	}
@@ -73,7 +76,7 @@ if(root != NULL)
 	delete_tree(root->left);
 	delete_tree(root->right);
 
-	printf("\nDeleting %s", root->l_name);
+	printf("\nDeleting %s...", root->l_name);
 	free(root);
 	
 	}
@@ -101,9 +104,10 @@ return temp_root;
 }
 //////////////////////////////////////////////////////
 
-
-
-
-
+int count_nodes(node* root)
+{
+if(root != NULL)
+	return 1 + count_nodes(root->left) + count_nodes(root->right);
+}
 
 

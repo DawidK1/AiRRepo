@@ -43,6 +43,8 @@ print_tree(find_max(root));
 printf("MIN\n");
 print_tree(find_min(root));
 
+printf("Ile wezlow %d", count_nodes(root));
+
 delete_tree(root);
 root = NULL;
 

@@ -27,5 +27,5 @@ node* find_min(node* root);
 
 node* find_max(node* root);
 
-
+int count_nodes(node* root);
 #endif // BST_H_INCLUDED
