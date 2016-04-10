@@ -36,6 +36,8 @@ insert_node(root, data4);
 insert_node(root, data2);
 insert_node(root, data3);
 insert_node(root, data5);
+
+printf("\n\nSpis:\n");
 print_tree(root);
 
 printf("MAX\n");
@@ -43,7 +45,9 @@ print_tree(find_max(root));
 printf("MIN\n");
 print_tree(find_min(root));
 
-printf("Ile wezlow %d", count_nodes(root));
+printf("Ile wezlow %d\n", count_nodes(root));
+
+printf("Wysokosc drzewa: %d", count_height(root));
 
 delete_tree(root);
 root = NULL;

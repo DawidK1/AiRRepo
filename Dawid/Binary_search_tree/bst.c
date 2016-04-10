@@ -1,8 +1,6 @@
 #include "bst.h"
 
-#define RESET_COUNTING 1
-#define COUNT 2
-#define READ 3
+
 
 void insert_node(node* root, node new_data)
 {
@@ -108,6 +106,34 @@ int count_nodes(node* root)
 {
 if(root != NULL)
 	return 1 + count_nodes(root->left) + count_nodes(root->right);
+else 
+	return 0;
 }
+/////////////////////////////////////////////////////
+
+int max(int a, int b)
+{
+if(a>b)
+	return a;
+else
+	return b;
+}
+
+int count_height(node* root)
+{
+if(root!=NULL)
+	return 1 + max(count_height(root->left),count_height(root->right));
+else 
+	return 0;
+}
+
+
+
+
+
+
+
+
+
 
 

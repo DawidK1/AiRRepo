@@ -28,4 +28,9 @@ node* find_min(node* root);
 node* find_max(node* root);
 
 int count_nodes(node* root);
+
+int max(int a, int b);
+
+int count_height(node* root);
+
 #endif // BST_H_INCLUDED
