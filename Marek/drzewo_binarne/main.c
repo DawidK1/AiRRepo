@@ -15,4 +15,7 @@ int main()
 	node* max=find_max(&root);
 	printf("\n\n max: %s %s, tel: %d\n", max->nazwisko, max->imie, max->numer_telefonu);
 	
+	//test gita
+	
+	
 }
