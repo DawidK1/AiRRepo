@@ -1,5 +1,10 @@
 #include "biblio.h"
 
+/* Funkcja strcoll zwraca: 
+		zero, jezeli str1=str2
+		liczbe mniejsza od zero <0 , jezeli str1<str2
+		liczbe wieksza od zero >0 , jezelu str1>srt2
+*/
 
 void insert(node* root, node* new_node)
 {
@@ -83,7 +88,50 @@ node* find_max(node* root)
 		return NULL;
 }
 
-//node* find_key(node* root, char* key)
+int nodes(node* root)
+{
+	if(root!=NULL)
+		return 1 + nodes(root->prawy_syn) + nodes(root->lewy_syn);
+	else
+		return 0;
+}
+
+node* find_key(node* root, char* key)
+{
+	node* temp=root;
+	
+	if(strcoll(temp->nazwisko, key)==0)
+		return temp;
+
+	if(strcoll(temp->nazwisko, key)>0)	
+	{
+		temp=temp->lewy_syn;
+		return find_key(temp, key);		
+	}
+	
+	if(strcoll(temp->nazwisko, key)<0)
+	{
+		temp=temp->prawy_syn;
+		return find_key(temp, key);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -15,4 +15,15 @@ int main()
 	node* max=find_max(&root);
 	printf("\n\n max: %s %s, tel: %d\n", max->nazwisko, max->imie, max->numer_telefonu);
 	
+	int a=0;
+	a=nodes(&root);
+	printf("liczba wezlow: %d\n", a);
+	
+	node* szukany=find_key(&root, "Nowak");
+	printf("\n\n szukany: %s %s, tel: %d\n", szukany->nazwisko, szukany->imie, szukany->numer_telefonu);
+	
+	
+	return 0;
+	
+	
 }
