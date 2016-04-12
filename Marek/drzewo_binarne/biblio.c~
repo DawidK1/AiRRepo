@@ -51,12 +51,23 @@ void insert(node* root, node* new_node)
 	}
 }
 
+void print_node(node* root)
+{
+	if(root!=NULL)
+	{
+		printf("\n%s %s", root->nazwisko, root->imie);
+		printf("	%d", root->numer_telefonu);
+	}
+	else
+		printf("blad przy wypisaniu osoby");
+}
+
 void in_order(node* root)
 {
 	if(root!=NULL)
 	{
 		in_order(root->lewy_syn);
-		printf("%s %s, tel: %d\n", root->nazwisko, root->imie, root->numer_telefonu);
+		print_node(root);
 		in_order(root->prawy_syn);
 	}
 }
@@ -99,20 +110,23 @@ int nodes(node* root)
 node* find_key(node* root, char* key)
 {
 	node* temp=root;
-	
-	if(strcoll(temp->nazwisko, key)==0)
-		return temp;
+	if(temp==NULL)
+		return NULL;
+	else
+	{
+		if(strcoll(temp->nazwisko, key)==0)
+			return temp;
 
-	if(strcoll(temp->nazwisko, key)>0)	
-	{
-		temp=temp->lewy_syn;
-		return find_key(temp, key);		
-	}
-	
-	if(strcoll(temp->nazwisko, key)<0)
-	{
-		temp=temp->prawy_syn;
-		return find_key(temp, key);
+		if(strcoll(temp->nazwisko, key)>0)	
+		{
+			temp=temp->lewy_syn;
+			return find_key(temp, key);		
+		}
+		else
+		{
+			temp=temp->prawy_syn;
+			return find_key(temp, key);
+		}
 	}
 }
 

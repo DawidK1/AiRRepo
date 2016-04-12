@@ -13,14 +13,17 @@ typedef struct node{
 	char nazwisko[30];
 	char imie[30];
 	int numer_telefonu;
-}root;
+}node;
 
 void insert(node* root, node* new_node);
+void print_node(node* root);
 void in_order(node* root);
 node* find_min(node* root);
 node* find_max(node* root);
 int nodes(node* root);
 node* find_key(node* root, char* key); // uznaje, ze kluczem jest nazwisko
+int max(int a, int b);
+int tree_height(node* root);
 
 
 #endif

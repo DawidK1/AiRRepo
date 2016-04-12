@@ -11,18 +11,16 @@ int main()
 	insert(&root, &new2);
 	in_order(&root);
 	node* min=find_min(&root);
-	printf("\n\nmin: %s %s, tel: %d\n", min->nazwisko, min->imie, min->numer_telefonu);
-	node* max=find_max(&root);
-	printf("\n\nmax: %s %s, tel: %d\n", max->nazwisko, max->imie, max->numer_telefonu);
 	
 	int a=0;
 	a=nodes(&root);
 	printf("\nliczba wezlow: %d\n", a);
 	
 	node* szukany=find_key(&root, "Nowak");
-	printf("\n\n szukany: %s %s, tel: %d\n", szukany->nazwisko, szukany->imie, szukany->numer_telefonu);
+	print_node(szukany);
 	
-	
+	a=tree_height(&root);
+	printf("\nwysokosc: %d\n", a);
 	return 0;
 	
 	
