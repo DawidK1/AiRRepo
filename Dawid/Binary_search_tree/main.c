@@ -49,6 +49,13 @@ printf("Ile wezlow %d\n", count_nodes(root));
 
 printf("Wysokosc drzewa: %d", count_height(root));
 
+
+printf("Szukam elementu o nazwisku Aaa:\n");
+print_node(find_node(root, "Aaa"));
+
+printf("Szukam elementu o nazwisku Kowalski:\n");
+print_node(find_node(root, "Kowalski"));
+
 delete_tree(root);
 root = NULL;
 
