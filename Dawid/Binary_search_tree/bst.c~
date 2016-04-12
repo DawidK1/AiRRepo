@@ -1,7 +1,7 @@
 #include "bst.h"
 
 
-
+/////////////////////////////////////////////////////
 void insert_node(node* root, node new_data)
 {
     node* temp_root = root;
@@ -57,10 +57,7 @@ if(root != NULL)
 	{
 	print_tree(root->left);
 
-	printf("Nazwisko: %s", root->l_name);
-	printf(" ");
-	printf("\nImie: %s",root->f_name);
-	printf("\nNumer telefonu: %d\n-----------------\n", root->number);
+	print_node(root);
 
 	print_tree(root->right);
 	}
@@ -122,13 +119,45 @@ else
 int count_height(node* root)
 {
 if(root!=NULL)
-	return 1 + max(count_height(root->left),count_height(node->right));
+	return 1 + max(count_height(root->left),count_height(root->right));
 else 
 	return 0;
 }
+/////////////////////////////////////////////////////
+node* find_node(node* root, char* key)
+{
+if(root != NULL)
+	{
+	if(strcoll(root->l_name, key) == 0)
+		return root;
 
 
+	if(strcoll(root->l_name, key) > 0)
 
+		return find_node(root->left, key);
+	else
+		return find_node(root->right, key);
+	
+	}
+else return NULL;
+
+}
+////////////////////////////////////////////////////
+void print_node(node* root)
+{
+
+if(root != NULL)
+	{
+	printf("Nazwisko: %s", root->l_name);
+
+	printf("\nImie: %s",root->f_name);
+
+	printf("\nNumer telefonu: %d\n-----------------\n", root->number);
+	}
+else 
+	printf("Nie znaleziono elementu!");
+}
+///////////////////////////////////////////////////
 
 
 
