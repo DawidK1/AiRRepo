@@ -6,24 +6,21 @@
 		liczbe wieksza od zero >0 , jezelu str1>srt2
 */
 
-void insert(node* root, node* new_node)
+void insert(node* root, node new_node)
 {
 	node* temp=root;
 	int not_success=1;
 	
 	while(not_success)
 	{
-		if(strcoll(temp->nazwisko, new_node->nazwisko)>0)
+		if(strcoll(temp->nazwisko, new_node.nazwisko)>0)
 		{			
 			if(temp->lewy_syn == NULL)
 			{
 				temp->lewy_syn=(node*)malloc(sizeof(node));
 				if(temp->lewy_syn != NULL)
-				{
-					temp->lewy_syn=new_node;
-					not_success=0;
-					return;
-				}
+					*(temp->lewy_syn)=new_node;
+				not_success=0;
 			}
 			else
 			{
@@ -31,17 +28,14 @@ void insert(node* root, node* new_node)
 			}
 		}
 	
-		if(strcoll(temp->nazwisko, new_node->nazwisko)<=0)
+		if(strcoll(temp->nazwisko, new_node.nazwisko)<=0)
 		{			
 			if(temp->prawy_syn == NULL)
 			{
 				temp->prawy_syn=(node*)malloc(sizeof(node));
 				if(temp->prawy_syn != NULL)
-				{
-					temp->prawy_syn=new_node;
-					not_success=0;
-					return;
-				}
+					*(temp->prawy_syn)=new_node;
+				not_success=0;
 			}
 			else
 			{
@@ -56,10 +50,10 @@ void print_node(node* root)
 	if(root!=NULL)
 	{
 		printf("\n%s %s", root->nazwisko, root->imie);
-		printf("	%d", root->numer_telefonu);
+		printf("	   %d", root->numer_telefonu);
 	}
 	else
-		printf("blad przy wypisaniu osoby");
+		printf("\nBlad przy wypisaniu osoby, nie znaleziono rekordu.");
 }
 
 void in_order(node* root)
@@ -146,6 +140,18 @@ int tree_height(node* root)
 	else
 		return 0; 
 }
+
+void delete_tree(node* root)
+{
+	if(root != NULL)
+	{
+		delete_tree(root->lewy_syn);
+		delete_tree(root->prawy_syn);
+		free(root);
+		root=NULL;
+	}
+}
+
 
 
 

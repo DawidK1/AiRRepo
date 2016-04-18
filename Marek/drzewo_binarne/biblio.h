@@ -10,12 +10,12 @@ typedef struct node{
 	struct node* lewy_syn;
 	struct node* prawy_syn;
 	
-	char nazwisko[30];
-	char imie[30];
+	char nazwisko[50];
+	char imie[50];
 	int numer_telefonu;
 }node;
 
-void insert(node* root, node* new_node);
+void insert(node* root, node new_node);
 void print_node(node* root);
 void in_order(node* root);
 node* find_min(node* root);
@@ -24,6 +24,7 @@ int nodes(node* root);
 node* find_key(node* root, char* key); // uznaje, ze kluczem jest nazwisko
 int max(int a, int b);
 int tree_height(node* root);
+void delete_tree(node* root);
 
 
 #endif
