@@ -1,0 +1,8 @@
+
+
+void Vector::Vector(int dim)
+	{
+	v_list = new float[dim];
+	for(int i = 0; i < dim ; i++ )
+		v_list[i] = 0;
+	}
