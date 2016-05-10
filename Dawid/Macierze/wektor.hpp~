@@ -1,0 +1,18 @@
+#include <iostream>
+
+
+class Wektor
+	{
+	double* tab;
+	int dim;	
+		
+
+	public:
+
+	Wektor(int d, double* t);
+	get(int i);
+	
+	
+
+
+	};
