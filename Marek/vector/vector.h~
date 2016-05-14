@@ -19,6 +19,11 @@ public:
 	
 	friend ostream& operator << (ostream& out, const Vector& v_out);
 	friend istream& operator >> (istream& in, const Vector& v_in);
+	
+	Vector& operator= (const Vector& source);
+	Vector operator+ (const Vector& add);
+	Vector operator- (const Vector& sub);
+	Vector operator* (const int& mult); //wektor razy skalar
 };
 
 #endif

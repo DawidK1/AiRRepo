@@ -79,7 +79,7 @@ Vector& Vector :: operator= (const Vector& source)
 		return *this;
 	if(source.size < 1 || source.fields == NULL)
 	{
-		//delete[] fields;
+		delete[] fields;
 		fields = NULL;
 		size = 0;
 	}
@@ -112,7 +112,73 @@ Vector& Vector :: operator= (const Vector& source)
 	return *this;
 }
 
+Vector Vector :: operator+ (const Vector& add)
+{
+	int max_size;
+	if(size >= add.size)
+		max_size = size;
+	else
+		max_size = add.size;
+	
+	Vector sum(max_size); //tworze nowy wektor, ktory bedzie suma pozostalych
+	for(int i = 0; i < max_size; i++)
+	{
+		sum.fields[i] = fields[i] + add.fields[i];
+	}
+	return sum;
+}
 
+Vector Vector :: operator- (const Vector& sub)
+{
+	if(sub.size == 0 || sub.fields == NULL) //odejmujemy zero / pusty wektor
+		return *this;
+	if(size == 0 || fields == NULL) //odejmujemy od zera / od pustego wektora
+	{
+		Vector opposed(sub.size);
+		for(int i = 0; i < size; i++)
+		{
+			opposed.fields[i] = -sub.fields[i];
+		}
+		return opposed;
+	}
+	
+	int max_size;
+	if(size >= sub.size)
+		max_size = size;
+	else
+		max_size = sub.size;
+		
+	Vector diff(max_size);
+	for(int i = 0; i < max_size; i++)
+	{
+		diff.fields[i] = fields[i] - sub.fields[i];
+	}
+	return diff;
+}
+
+Vector Vector :: operator* (const int& mult)
+{
+	if(size < 1 || fields == NULL)
+		return *this;
+	Vector result(size);
+	for(int i = 0; i < size; i++)
+	{
+		result.fields[i] = fields[i] * mult;
+	}
+	return result;
+}
+
+Vector operator* (const int& mult, const Vector& source)
+{
+	if(source.size < 1 || source.fields == NULL)
+		return source;
+	Vector result(source.size)
+	for(int i = 0; i < source.size; i++)
+	{
+		result.fields[i] = source.fields[i] * mult;
+	}
+	return result;
+}
 
 
 

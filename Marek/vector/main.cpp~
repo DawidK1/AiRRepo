@@ -4,8 +4,13 @@ int main()
 {
 	Vector a(2);
 	cin >> a;
+	Vector b(2);
+	cin >> b;
 	cout << "A: " << a << endl;
-	cout << a[1];
-
+	cout << "B: " << b << endl;
+	cout << "A+B= " << a+b << endl;
+	cout << "A-B= " << a-b << endl;
+	cout << "B-A= " << b-a << endl;
+	cout << "A*3= " << 
 	return 0;
 }
