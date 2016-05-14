@@ -123,7 +123,10 @@ Vector Vector :: operator+ (const Vector& add)
 	Vector sum(max_size); //tworze nowy wektor, ktory bedzie suma pozostalych
 	for(int i = 0; i < max_size; i++)
 	{
-		sum.fields[i] = fields[i] + add.fields[i];
+		if(i < size)
+			sum.fields[i] += fields[i];
+		if(i < add.size)
+			sum.fields[i] += add.fields[i];
 	}
 	return sum;
 }
@@ -151,7 +154,10 @@ Vector Vector :: operator- (const Vector& sub)
 	Vector diff(max_size);
 	for(int i = 0; i < max_size; i++)
 	{
-		diff.fields[i] = fields[i] - sub.fields[i];
+		if(i < size)
+			diff.fields[i] += fields[i];
+		if(i < sub.size)
+			diff.fields[i] -= sub.fields[i];
 	}
 	return diff;
 }
@@ -180,6 +186,84 @@ Vector operator* (const int& mult, const Vector& source)
 	return result;
 }
 
+Vector Vector :: operator += (const Vector& add)
+{
+	if(size < 1 || fields == NULL)
+		return add;
+	else if(add.size == 0 || add.fields == NULL) return *this;
+	else
+	{
+		int max_size;
+		if(size >= add.size)
+			max_size = size;
+		else
+			max_size = add.size;
+		
+		Vector temp(max_size);
+		for(int i = 0; i < temp.size; i++)
+		{
+			if(i < size)
+				temp.fields[i] += fields[i];
+			if(i < add.size)
+				temp.fields[i] += add.fields[i];
+		}
+		delete[] fields;
+		size = max_size;
+		fields = new int[size];
+		if(fields == NULL)
+		{
+			size = 0;
+			throw bad_alloc();
+		}
+		for(int i = 0;i < size; i++)
+		{
+			fields[i] = temp.fields[i];
+		}
+	}
+	return *this;
+}
+
+Vector Vector :: operator-= (const Vector& sub)
+{
+	if(size == 1 || fields == NULL)
+	{
+		for(int i = 0;i < sub.size; i++)
+			sub.fields[i] = -sub.fields[i];
+		return sub;
+	}
+	else if(sub.size == 0 || sub.fields == NULL) return *this;
+	else
+	{
+		int max_size;
+		if(size >= sub.size)
+			max_size = size;
+		else
+			max_size = sub.size;
+		
+		Vector temp(max_size);
+		for(int i = 0; i < temp.size; i++)
+		{
+			temp.fields[i] = 0;
+			if(i < size)
+				temp.fields[i] += fields[i];
+			if(i < sub.size)
+				temp.fields[i] -= sub.fields[i];
+		}
+		delete[] fields;
+		size = max_size;
+		fields = new int[size];
+		if(fields == NULL)
+		{
+			size = 0;
+			throw bad_alloc();
+		}
+		for(int i = 0;i < size; i++)
+		{
+			fields[i] = temp.fields[i];
+		}
+	}
+	return *this;
+}
 
 
 
