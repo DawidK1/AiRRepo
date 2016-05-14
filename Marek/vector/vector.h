@@ -27,6 +27,10 @@ public:
 	friend Vector operator* (const int& mult, const Vector& source);
 	Vector operator+= (const Vector& add);
 	Vector operator-= (const Vector& sub);
+	Vector operator*= (const int& mult);
+	
+	bool operator!= (const Vector& v_2);
+	bool operator== (const Vector& v_2);
 };
 
 #endif

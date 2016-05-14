@@ -265,8 +265,50 @@ Vector Vector :: operator-= (const Vector& sub)
 	return *this;
 }
 
+Vector Vector :: operator*= (const int& mult)
+{
+	if(size == 0 || fields == NULL)	
+		return *this;
+	else
+	{
+		for(int i = 0;i < size; i++)
+			fields[i] = mult*fields[i];
+	}
+	return *this;
+}
 
+bool Vector :: operator!= (const Vector& v_2)
+{
+	if(size == v_2.size)
+	{
+		for(int i = 0;i < size; i++)
+		{
+			if(fields[i] == v_2.fields[i])
+				return false;
+		}
+		return true;
+	}
+	if(size < 1 && v_2.size < 1)
+		return false; //jezeli oba wektory maja rozmiar mniejszy od 1 to przyjmuje, ze sa rowne
+	return true;
+}
 
+bool Vector :: operator== (const Vector& v_2)
+{
+	if(size < 1 && v_2.size < 1)
+		return true;
+	if(size != v_2.size)
+		return false;
+	else
+	{
+		for(int i = 0;i < size; i++)
+		{
+			if(fields[i] == v_2.fields[i])
+				return true;
+		}
+	}
+	return false;
+}
 
 
 
