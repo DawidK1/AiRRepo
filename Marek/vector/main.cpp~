@@ -1,0 +1,8 @@
+#include "vector.h"
+
+int main()
+{
+	cout<<"hello"<<endl;
+	getchar();
+	return 0;
+}
