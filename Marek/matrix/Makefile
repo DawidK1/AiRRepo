@@ -8,7 +8,7 @@ vector.o: vector.cpp vector.h
 	g++ -Wall -c vector.cpp vector.h
 
 matrix.o: matrix.cpp matrix.h
-	g++ -Wall -c matrix.cpp matrix.h
+	g++ -Wall -c matrix.cpp matrix.h 
 
 .Phony: clean
 
