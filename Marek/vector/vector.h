@@ -24,7 +24,8 @@ public:
 	Vector operator+ (const Vector& add);
 	Vector operator- (const Vector& sub);
 	Vector operator* (const int& mult); //wektor razy skalar
-	friend Vector operator* (const int& mult, const Vector& source);
+	friend Vector operator* (const int& mult, const Vector& source); //skalar razy wektor
+	int operator* (const Vector& source); //wektor razy wektor
 	Vector operator+= (const Vector& add);
 	Vector operator-= (const Vector& sub);
 	Vector operator*= (const int& mult);
