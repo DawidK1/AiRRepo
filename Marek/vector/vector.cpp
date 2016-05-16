@@ -225,7 +225,7 @@ Vector Vector :: operator += (const Vector& add)
 
 Vector Vector :: operator-= (const Vector& sub)
 {
-	if(size == 1 || fields == NULL)
+	/*if(size <= 1 || fields == NULL)
 	{
 		for(int i = 0;i < sub.size; i++)
 			sub.fields[i] = -sub.fields[i];
@@ -233,7 +233,7 @@ Vector Vector :: operator-= (const Vector& sub)
 	}
 	else if(sub.size == 0 || sub.fields == NULL) return *this;
 	else
-	{
+	{*/
 		int max_size;
 		if(size >= sub.size)
 			max_size = size;
@@ -243,7 +243,6 @@ Vector Vector :: operator-= (const Vector& sub)
 		Vector temp(max_size);
 		for(int i = 0; i < temp.size; i++)
 		{
-			temp.fields[i] = 0;
 			if(i < size)
 				temp.fields[i] += fields[i];
 			if(i < sub.size)
@@ -261,7 +260,7 @@ Vector Vector :: operator-= (const Vector& sub)
 		{
 			fields[i] = temp.fields[i];
 		}
-	}
+	
 	return *this;
 }
 
