@@ -186,6 +186,22 @@ Vector operator* (const int& mult, const Vector& source)
 	return result;
 }
 
+int Vector :: operator* (const Vector& source)
+{
+	int result = 0;
+	
+	if(size == source.size)
+	{
+		for(int i = 0;i < size; i++)
+		{
+			result = result + (fields[i] * source.fields[i]);
+		}
+		return result;
+	}
+	else
+		return 0;
+}
+
 Vector Vector :: operator += (const Vector& add)
 {
 	if(size < 1 || fields == NULL)

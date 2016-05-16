@@ -19,6 +19,7 @@ int main()
 		cout << "B-A= " << b-a << endl;
 		cout << "A*3= " << a*3 << endl;
 		cout << "3*B= " << 3*b << endl;
+		cout << "A*B= " << a*b << endl << endl;
 		a+=b;
 		cout << "A+=B: " << a << endl;
 		c-=b;
