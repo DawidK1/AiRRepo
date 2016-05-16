@@ -1,0 +1,16 @@
+matrix: main.o vector.o matrix.o
+	g++ -lm -o vector main.o vector.o matrix.o
+
+main.o: main.cpp
+	g++ -Wall -c main.cpp -o main.o
+
+vector.o: vector.cpp vector.h
+	g++ -Wall -c vector.cpp vector.h
+
+matrix.o: matrix.cpp matrix.h
+	g++ -Wall -c matrix.cpp matrix.h
+
+.Phony: clean
+
+clean:
+	rm -f program1 main.o vector.o matrix.o
