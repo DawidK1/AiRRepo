@@ -46,8 +46,17 @@ Wektor::Wektor(int d )
 
 		}
 	}
+Wektor :: Wektor(const Wektor& source)
+	{
+	dim = source.dim;
+		
+	tab = new int[dim];
+	if (tab == NULL)
+		throw bad_alloc();
 
-
+	for(int i = 0; i < dim ; i++)
+		tab[i] = source.tab[i];
+	}
 Wektor :: ~Wektor()
 	{
 
@@ -171,6 +180,84 @@ int Wektor::operator* (const Wektor& s)const
 		return result;	
 		}
 	}
+
+Wektor Wektor::operator* (const int& m) const
+	{
+	static Wektor r;
+
+	r.~Wektor();
+	r = Wektor(*this);
+	for (int i = 0 ; i < dim ; i++)
+		r.tab[i] *= m;
+	return r;
+	
+	}
+ Wektor operator* (const int& m, const Wektor& s)
+	{
+		static Wektor r;
+
+	r.~Wektor();
+	r = Wektor(s);
+	for (int i = 0 ; i < s.dim ; i++)
+		r.tab[i] *= m;
+	return r;
+	}
+
+bool operator== (const Wektor& v1, const Wektor& v2)
+	{
+	if(v1.dim != v2.dim)
+		return false;
+	else
+		{
+		for(int i = 0 ; i < v1.dim ; i++)
+			if(v1.tab[i] != v2.tab[i]) return false;
+		return true;
+		}
+	}
+
+
+bool operator!= (const Wektor& v1, const Wektor& v2)
+	{
+	if(v1.dim != v2.dim)
+		return true;
+		{
+		for(int i = 0 ; i < v1.dim ; i++)
+			if(v1.tab[i] != v2.tab[i]) return true;
+		return false;
+		}
+	}
+	
+Wektor Wektor::operator+= (const Wektor& s)
+	{
+	if(dim == s.dim)
+		{
+		for(int i = 0 ; i < dim ; i++)
+			tab[i] += s.tab[i];
+		}
+	return *this;
+	}
+
+Wektor operator-= (const Wektor& s)
+	{
+	if(dim == s.dim)
+		{
+		for(int i = 0 ; i < dim ; i++)
+			tab[i] -= s.tab[i];
+		}
+	return *this;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
