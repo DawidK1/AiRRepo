@@ -2,28 +2,26 @@
 
 Matrix :: Matrix(int input_vector_size, int input_rows)
 {
-	if(input_vector_size < 1 || input_rows < 1)
-	{
-		vectors = NULL;
-		rows = 0;
-		vector_size = 0;
-		return;
-	}
-	
-	vectors = new Vector[input_vector_size];
+	vectors = new Vector*[input_vector_size];
 	if(vectors == NULL)
 	{
 		rows = 0;
 		vector_size = 0;
 		throw bad_alloc();
-	}
+	} 
 	
-	rows = input_rows;
-	vector_size = input_vector_size;
-	for (int i = 0;i < rows; i++)
+	for( int i = 0;i < input_vector_size; i++)
 	{
-		vectors[i] = Vector(vector_size);
+		vectors[i] = new Vector(input_vector_size);
+		if(vectors[i] == NULL)
+		{
+			rows = 0;
+			vector_size = 0;
+			throw bad_alloc();
+		}
 	}
+	vector_size = input_vector_size;
+	rows = input_rows;
 }
 
 Matrix :: Matrix(const Matrix& source)
@@ -36,7 +34,7 @@ Matrix :: Matrix(const Matrix& source)
 	}
 	else
 	{
-		vectors = new Vector(source.vector_size);
+		vectors = new Vector*[source.vector_size];
 		if(vectors == NULL)
 		{
 			rows = 0;
@@ -47,7 +45,7 @@ Matrix :: Matrix(const Matrix& source)
 		vector_size = source.vector_size;
 		for(int i = 0;i < rows; i++)
 		{
-			vectors[i] = source.vectors[i];
+			*vectors[i] = *source.vectors[i];
 		}
 	}
 }
@@ -55,6 +53,7 @@ Matrix :: Matrix(const Matrix& source)
 Matrix :: ~Matrix()
 {
 	delete[] vectors;
+	cout << "Jestem destruktorem" << endl;
 }
 
 ostream& operator<< (ostream& out, const Matrix& matrix_out)
@@ -68,7 +67,7 @@ ostream& operator<< (ostream& out, const Matrix& matrix_out)
 	{
 		for(int i = 0;i < matrix_out.rows; i++)
 		{
-			cout << matrix_out.vectors[i] << endl;
+			cout << *(matrix_out.vectors)[i] << endl;
 		}
 		return out;
 	}
@@ -85,7 +84,7 @@ istream& operator>> (istream& in, const Matrix& matrix_in)
 	{
 		for(int i = 0; i < matrix_in.rows; i++)
 		{
-			cin >> matrix_in.vectors[i];
+			cin >> *(matrix_in.vectors)[i];
 		}
 		return in;
 	}
@@ -95,7 +94,7 @@ Matrix& Matrix :: operator= (const Matrix& source)
 {
 	if(rows == source.rows && vector_size == source.vector_size)
 	{
-		vectors = new Vector[source.rows];
+		vectors = new Vector*[source.rows];
 		if(vectors == NULL)
 		{
 			rows = 0;
@@ -103,15 +102,15 @@ Matrix& Matrix :: operator= (const Matrix& source)
 			throw bad_alloc();
 		}
 		for(int i = 0;i < source.rows; i++)
-			vectors[i] = source.vectors[i];
+			*(vectors)[i] = *(source.vectors)[i];
 		return *this;
 	}
 	else
 		return *this;
 	
 }
-
-Matrix Matrix :: operator+ (const Matrix& add)
+/*
+Matrix Matrix :: operator+ (const Matrix& add) 
 {
 	if(rows == add.rows && vector_size == add.vector_size)
 	{
@@ -126,9 +125,9 @@ Matrix Matrix :: operator+ (const Matrix& add)
 		return *this;
 }
 
-Matrix Matrix :: operator- (const Matrix& sub)
+Matrix Matrix :: operator- (const Matrix& sub) 
 {
-	if( rows == sub.rows && vector_size == sub.vector_size)
+	if(rows == sub.rows && vector_size == sub.vector_size)
 	{
 		Matrix diff(vector_size, rows);
 		for(int i = 0; i<rows; i++)
@@ -143,12 +142,28 @@ Matrix Matrix :: operator- (const Matrix& sub)
 	
 }
 
+Matrix Matrix :: operator* (const int& mult)
+{
+	Matrix result(vector_size, rows);
+	for(int i = 0;i < rows; i++)
+	{
+		result.vectors[i] = mult * vectors[i];
+	}	
+	return result;
+}
+
+Matrix operator* (const int& mult, const Matrix& source)
+{
+	Matrix result(source.vector_size, source.rows);
+	for(int i = 0;i < result.rows; i++)
+	{
+		result.vectors[i] = mult * source.vectors[i];
+	}	
+	return result;
+}
 
 
-
-
-
-
+*/
 
 
 

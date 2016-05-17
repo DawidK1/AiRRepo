@@ -19,8 +19,10 @@ public:
 	friend istream& operator>> (istream& in, const Matrix& matrix_in);
 	
 	Matrix& operator= (const Matrix& source);
-	//Matrix operator+ (const Matrix& add);
+	Matrix operator+ (const Matrix& add);
 	Matrix operator- (const Matrix& sub);
+	Matrix operator* (const int& mult);
+	friend Matrix operator* (const int& mult, const Matrix& source);
 };
 
 #endif
