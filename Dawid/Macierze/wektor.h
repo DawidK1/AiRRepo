@@ -1,5 +1,8 @@
-#include <iostream>
+#ifndef _WEKTOR_H_
+#define _WEKTOR_H_
 
+#include <iostream>
+#include <stdexcept>
 using namespace std;
 
 class Wektor
@@ -16,7 +19,6 @@ class Wektor
 	Wektor(const Wektor& source);
 	~Wektor();
 
-
 	friend ostream& operator<< (ostream& out, const Wektor& v);	
 	friend istream& operator>> (istream& in, Wektor& v);	
 	friend Wektor operator* (const int& m, const Wektor& s);
@@ -31,8 +33,11 @@ class Wektor
 	Wektor operator+= (const Wektor& s);
 	Wektor operator-= (const Wektor& s);
 	Wektor operator*= (const int& m);
+	int operator[] (const int& pos);
+
 	double get(int i);
 
 
 
 	};
+#endif

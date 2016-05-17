@@ -77,7 +77,7 @@ double Wektor::get(int i)
 
 ostream& operator<< (ostream& out, const Wektor& v)
 	{
-	cout << endl << "[ "<< v.tab[0];
+	cout << " [ "<< v.tab[0];
 	for(int i = 1 ; i < v.dim ; i++)
 		{
 		cout << ", " << v.tab[i];
@@ -253,8 +253,13 @@ Wektor Wektor::operator*= (const int& m)
 		tab[i] *= m;
 	return *this;
 	}
-
-
+int Wektor::operator[] (const int& pos)
+	{
+	if(pos >=0 && pos < dim)
+		return tab[pos];
+	else
+		throw out_of_range("Incorrect position");
+	}
 
 
 
