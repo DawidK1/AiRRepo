@@ -1,10 +1,18 @@
-#include "wektor.h"
+#include "macierz.h"
 
 int main()
 {
 	cout << "hello" << endl;
+	Macierz a;
+	Macierz b;
+	Macierz wynik;
 	
-	
+	cin >> a;
+	cin >> b;
+	cout << a;
+	cout << b;
+	wynik = a+b;
+	cout << wynik << endl;
 	
 	
 	/*int result;

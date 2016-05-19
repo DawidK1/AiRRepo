@@ -1,9 +1,21 @@
-#include "wektor.h"
+#include "macierz.h"
 
 int main()
 {
 	cout << "hello" << endl;
-	int result;
+	Macierz a;
+	Macierz b;
+	Macierz wynik;
+	
+	cin >> a;
+	cin >> b;
+	cout << a;
+	cout << a;
+	wynik = a+b;
+	cout << wynik << endl;
+	
+	
+	/*int result;
 	Wektor a(3);
 	Wektor b(3);
 	cin >> a;
@@ -19,6 +31,6 @@ int main()
 	b *= 3;
 	cout << b << endl;
 	result = a[2];
-	cout << result << endl;
+	cout << result << endl;*/
 	return 0;
 }
