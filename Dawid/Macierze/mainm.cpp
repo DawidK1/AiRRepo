@@ -23,5 +23,10 @@ int main()
 	cout << m1 - m2;
 	cout << m1;
 	m3 = m1;	
-	cout << (m3*5);
+	cout << m3 * 5;
+	cout << m1 * m2;
+	m3 += m1;
+	cout << m3;
+	m3-= m1;
+	cout << m3;
 	}

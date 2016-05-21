@@ -23,8 +23,11 @@ class Matrix{
 	Matrix& operator+ (const Matrix& a);
 	Matrix& operator- (const Matrix& a);
 	Matrix& operator* (const int a);
-
-
+	Matrix& operator* (const Matrix& a);
+	Matrix& operator+= (const Matrix& a);
+	Matrix& operator-= (const Matrix& a);
+	Matrix& operator*= (const Matrix& a);
+	Matrix& operator*= (const int& a);
 	};
 
 

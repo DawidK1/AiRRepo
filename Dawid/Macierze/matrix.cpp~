@@ -110,7 +110,7 @@ Matrix& Matrix::operator- (const Matrix& a)
 		for(int i = 0; i < result.col ; i++)
 			{
 			result.vecs[i] = new Wektor(row);
-			*result.vecs[i] = *(a.vecs[i]) - *(vecs[i]);
+			*result.vecs[i] = *(vecs[i]) - *(a.vecs[i]);
 			}
 		}
 	return result;
@@ -150,8 +150,58 @@ Matrix& Matrix::operator* (const int a)
 		*(result.vecs[i]) = *(result.vecs[i]) * a;
 	return result;
 	}
+Matrix& Matrix::operator* (const Matrix& a)
+	{
+	static Matrix result = Matrix();
 
+	result.row = 0;
+	result.col = 0;
+	result.~Matrix();
+	
+	if(this->col == a.row)
+		{
+		result.vecs = new Wektor*[a.col];
+		if(result.vecs == NULL)
+			throw bad_alloc();
+		
+		for(int i = 0 ; i < a.col ; i++)
+			{			
+			result.vecs[i] = new Wektor(this->col);
+			if (result.vecs[i] == NULL)
+				throw bad_alloc();
+			
+			for(int j = 0 ; j < this->col ; j++)
+				{
+				for(int k = 0 ; k < this->col ; k++)
+					{
 
+					(*(result.vecs[i])).setVal(k, (*(this->vecs[k]))[j] * (*(a.vecs[k]))[i] + (*(result.vecs[i]))[k]);
+					}
+				}
+
+			}
+		result.row = this->row;
+		result.col = a.col;
+		}
+	return result;
+
+	}
+Matrix& Matrix::operator+= (const Matrix& a)
+	{
+	*this = *this + a;
+	return *this;
+	}
+Matrix& Matrix::operator-= (const Matrix& a)
+	{
+	*this = *this - a;
+	return *this;
+	}
+
+Matrix& Matrix::operator*= (const Matrix& a)
+	{
+	*this = *this * a;
+	return *this;
+	}
 
 
 
