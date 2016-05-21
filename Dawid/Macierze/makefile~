@@ -5,5 +5,5 @@ wektor.o: wektor.cpp wektor.h
 matrix.o: matrix.cpp matrix.h
 	g++ -c matrix.cpp
 
-mainm.o: mainm.cpp
-	g++ -c mainm.cpp
+mainm.o: mainmatrix.cpp
+	g++ -c mainmatrix.cpp

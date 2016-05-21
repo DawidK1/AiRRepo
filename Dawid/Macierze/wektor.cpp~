@@ -120,7 +120,7 @@ Wektor& Wektor::operator= (const Wektor& s){
 
 	}
 
-Wektor Wektor::operator+ (const Wektor& s)const
+Wektor& Wektor::operator+ (const Wektor& s)const
 	{
 	static Wektor suma;
 	if(dim != s.dim)

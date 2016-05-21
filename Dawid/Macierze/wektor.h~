@@ -27,7 +27,7 @@ class Wektor
 	friend bool operator!= (const Wektor& v1, const Wektor& v2);
 
 	Wektor& operator= (const Wektor& s);
-	Wektor operator+ (const Wektor& s) const;
+	Wektor& operator+ (const Wektor& s) const;
 	Wektor operator- (const Wektor& s) const;
 	int operator* (const Wektor& s) const;
 	Wektor operator* (const int& m) const;
