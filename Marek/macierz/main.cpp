@@ -6,13 +6,13 @@ int main()
 	Macierz a;
 	Macierz b;
 	Macierz wynik;
-	
+	Wektor c;
 	cin >> a;
 	cin >> b;
 	cout << a;
 	cout << b;
-	wynik = a+b;
-	cout << wynik << endl;
+	b  *= 2;
+	cout << b << endl;
 	
 	
 	/*int result;

@@ -27,7 +27,7 @@ Wektor :: Wektor(const Wektor& source)
 Wektor :: ~Wektor()
 {
 	delete[] tab;
-	tab = NULL;
+	
 }
 
 Wektor Wektor :: operator+ (const Wektor& b)
@@ -35,7 +35,6 @@ Wektor Wektor :: operator+ (const Wektor& b)
 	Wektor result(dlugosc);
 	if(dlugosc == b.dlugosc)
 	{
-		Wektor result(dlugosc);
 		for(int i = 0;i < dlugosc; i++)
 			result.tab[i] = tab[i] + b.tab[i];
 	}
@@ -47,7 +46,6 @@ Wektor Wektor :: operator- (const Wektor& b)
 	Wektor result(dlugosc);
 	if(dlugosc == b.dlugosc)
 	{
-		Wektor result(dlugosc);
 		for(int i = 0;i < dlugosc; i++)
 			result.tab[i] = tab[i] - b.tab[i];
 	}
