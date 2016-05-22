@@ -5,7 +5,7 @@
 int main() 
 	{
 
-
+  
 
 	Matrix m1 = Matrix(3,3);
 	Matrix m2 = Matrix(3,3);
@@ -29,4 +29,7 @@ int main()
 	cout << m3;
 	m3-= m1;
 	cout << m3;
+	cout << (m1==m1);
+	cout << (m1!=m2);
+	cout << m1(0,0);
 	}

@@ -208,6 +208,56 @@ Matrix& Matrix::operator*= (const int& a)
 	return *this;
 	}
 
+bool Matrix::operator== (const Matrix& a)
+	{
+	if(this->col != a.col || this->row != a.row)
+		return false;
+	else
+		{
+		for(int i = 0 ; i < this->col ; i++)
+			{
+			if(*(this->vecs[i]) != *(a.vecs[i]))
+				return false;
+			}
+		return true;
+		}
+	}
+bool Matrix::operator!= (const Matrix& a)
+	{
+	if(*this == a)
+		return false;
+	else
+		return true;
+	}
+
+int Matrix::operator() (const int i, const int j)
+	{
+	if(i < this->col && j < this->row && i >= 0 && j >= 0 )
+		return (*(this->vecs[i]))[j];
+	else
+		throw out_of_range("Out of range call");
+	}
+istream& operator>>(istream& in, Matrix& m)
+	{
+	if(m.col < 1 || m.row < 1)
+		{
+		cout << "Empty matrix, assigment impossible";
+		return in;
+		}
+	else
+		{
+		int a;
+		for (int i = 0 ; i < m.col; i++)
+			{
+			for(int j = 0; j < m.row ; j++)
+				{
+				cout <<endl << "Col: " <<i << "Row: " << j << " ";
+				cin >> a;
+				m.setVal(i, j, a);
+				}
+			}
+		}
+	}
 
 void Matrix::setVal(int c, int r, int v)
 	{
@@ -215,7 +265,13 @@ void Matrix::setVal(int c, int r, int v)
 		vecs[c]->setVal(r, v);
 	}
 
-
+Matrix& operator* (const int a, const Matrix& m)
+	{
+	static Matrix result;
+	result = m;
+	result*= a;
+	return result;
+	}  
 
 
 
