@@ -18,6 +18,7 @@ class Wektor
 	Wektor(int d = 2);
 	Wektor(const Wektor& source);
 	~Wektor();
+	
 
 	friend ostream& operator<< (ostream& out, const Wektor& v);	
 	friend istream& operator>> (istream& in, Wektor& v);	
@@ -35,8 +36,8 @@ class Wektor
 	Wektor operator*= (const int& m);
 	int operator[] (const int& pos);
 
-	double get(int i);
-
+	const int get(int i);
+	void setVal(int pos, int val);
 
 
 	};

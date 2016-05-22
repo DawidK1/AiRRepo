@@ -64,9 +64,14 @@ Wektor :: ~Wektor()
 	tab = NULL;
 	}
 
+void Wektor::setVal(int pos, int val)
+	{
+	if(pos < dim && pos >= 0 )
+		tab[pos] = val;		
 
+	}
 	
-double Wektor::get(int i)
+const int Wektor::get(int i)
 	{
 	if( i >= 0 && i < dim)
 		return tab[i];

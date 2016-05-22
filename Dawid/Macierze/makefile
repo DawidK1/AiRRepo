@@ -1,6 +1,9 @@
-main: main.o wektor.o
-	g++ main.o wektor.o -o main
+mainm: mainm.o wektor.o matrix.o
+	g++ mainm.o wektor.o matrix.o -o mainm
 wektor.o: wektor.cpp wektor.h
 	g++ -c wektor.cpp
-main.o: main.cpp
-	g++ -c main.cpp
+matrix.o: matrix.cpp matrix.h
+	g++ -c matrix.cpp
+
+mainm.o: mainm.cpp
+	g++ -c mainm.cpp
