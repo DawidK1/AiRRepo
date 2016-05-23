@@ -2,17 +2,26 @@
 
 int main()
 {
-	cout << "hello" << endl;
-	Macierz a;
-	Macierz b;
-	Macierz wynik;
-	Wektor c;
-	cin >> a;
-	cin >> b;
-	cout << a;
-	cout << b;
-	b  *= 2;
-	cout << b << endl;
+	Macierz A;
+	Macierz B;
+	Macierz C;
+	cin >> A;
+	cin >> B;
+	C = A + B;
+	cout << endl;
+	cout << A << "+" << endl << endl << B << endl << "=" << endl << C << endl;
+	C = A - B;
+	cout << A << "-" << endl << endl << B << endl << "=" << endl << C << endl;
+	C = B * 3;
+	cout << B << "*" << endl << endl << 3 << endl << endl << "=" << endl << C << endl;
+	A += B;
+	cout << "A+=B" << endl << A << endl;
+	A -= B;
+	cout << "A-=B" << endl << A << endl;
+	A *= 2;
+	cout << "A*=2" << endl << A << endl;
+	if (A == B) cout << "A==B" << endl;
+	if (A != B) cout << "A!=B" << endl;
 	
 	
 	/*int result;

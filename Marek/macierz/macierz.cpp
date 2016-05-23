@@ -5,12 +5,8 @@ Macierz :: Macierz()
 	wier = 2;
 	kol = 2;
 	tab = new Wektor* [wier];
-	int i;
-	Wektor* tablica;
-	tablica = new Wektor[wier];
-	for(i = 0;i < wier; i++) {
-		tab[i]=&(tablica[i]);
-	}
+	tab[0] = new Wektor();
+	tab[1] = new Wektor();
 }
 
 Macierz :: Macierz (int kolumny,int wiersze) 
@@ -124,6 +120,23 @@ Wektor Macierz :: operator[] (int b)
 		return *(tab[0]);
 	}
 }
+
+/*Macierz Macierz :: operator* (const Macierz &b)
+{
+	Macierz result(this->wier, b.kol);
+	for(int i = 0;i < this->wier; i++)
+	{
+		for(int j = 0;j < b.kol; j++)
+		{
+			for(int k = 0;k < this->kol; k++)
+			{
+				(*(result.tab[i]))[j] = (*(result.tab[i]))[j] + ((*this)[i][k]) * (b[k][j]);
+			}
+		}
+	}
+    return result;
+}
+*/
 /*
 Macierz Macierz :: operator* (const Macierz &b)
 {
