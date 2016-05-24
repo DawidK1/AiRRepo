@@ -29,7 +29,6 @@ public:
 	void operator+= (const Wektor &b);
 	void operator-= (const Wektor &b);
 	void operator*= (const int a);
-	void operator*= (const Wektor &b);
 	friend ostream& operator<< (ostream& wyjscie, Wektor& b);
 	friend istream& operator>> (istream& wejscie, Wektor& b);
 };

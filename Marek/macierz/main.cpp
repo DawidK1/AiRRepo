@@ -2,9 +2,9 @@
 
 int main()
 {
-	Macierz A;
-	Macierz B;
-	Macierz C;
+	Macierz A(3, 3);
+	Macierz B(3, 3);
+	Macierz C(3, 3);
 	cin >> A;
 	cin >> B;
 	C = A + B;
@@ -14,6 +14,8 @@ int main()
 	cout << A << "-" << endl << endl << B << endl << "=" << endl << C << endl;
 	C = B * 3;
 	cout << B << "*" << endl << endl << 3 << endl << endl << "=" << endl << C << endl;
+	C = A * B;
+	cout << A << "*" << endl << endl << B << endl << "=" << endl << C << endl;
 	A += B;
 	cout << "A+=B" << endl << A << endl;
 	A -= B;

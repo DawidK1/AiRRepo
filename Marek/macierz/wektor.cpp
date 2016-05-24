@@ -194,6 +194,11 @@ istream& operator>> (istream& wejscie, Wektor& b)
 	return wejscie;
 }
 
+void Wektor :: wartosc(int miejsce, int wartosc)
+{
+	if(miejsce < dlugosc && miejsce >= 0)
+		tab[miejsce] = wartosc;
+}
 
 
 

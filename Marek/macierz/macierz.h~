@@ -26,6 +26,7 @@ public:
 	Macierz operator* (int b);
 	void operator+= (const Macierz &b);
 	void operator-= (const Macierz &b);
+	void operator*= (int b);
 	friend ostream& operator<< (ostream& wyjscie, Macierz& m);
 	friend istream& operator>> (istream& wejscie, Macierz& m);
 };

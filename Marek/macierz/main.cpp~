@@ -9,11 +9,13 @@ int main()
 	cin >> B;
 	C = A + B;
 	cout << endl;
-	cout << A << "+" << endl << endl << B << endl << "=" << endl << C << endl;
+//	cout << A << "+" << endl << endl << B << endl << "=" << endl << C << endl;
 	C = A - B;
-	cout << A << "-" << endl << endl << B << endl << "=" << endl << C << endl;
+//	cout << A << "-" << endl << endl << B << endl << "=" << endl << C << endl;
 	C = B * 3;
-	cout << B << "*" << endl << endl << 3 << endl << endl << "=" << endl << C << endl;
+//	cout << B << "*" << endl << endl << 3 << endl << endl << "=" << endl << C << endl;
+	C = A * B;
+	cout << A << "*" << endl << endl << B << endl << "=" << endl << C << endl;
 	A += B;
 	cout << "A+=B" << endl << A << endl;
 	A -= B;

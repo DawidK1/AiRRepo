@@ -22,7 +22,7 @@ public:
 	int operator== (const Macierz& b); // zwraca 1 jak macierze sa sobie rowne, 0 jezeli sa rozne
 	int operator!= (const Macierz& b); // zwraca 0 jak macierze sa sobie rowne, 1 jezeli sa rozne
 	Wektor operator[] (int b);
-	Macierz operator* (const Macierz& b);
+	Macierz operator* (Macierz& b);
 	Macierz operator* (int b);
 	void operator+= (const Macierz &b);
 	void operator-= (const Macierz &b);

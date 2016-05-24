@@ -71,7 +71,6 @@ void Macierz :: operator= (const Macierz&b)
 	}
 	else
 	{
-		cout << "Macierze sa roznej wielkosci" << endl;
 		return;
 	}
 }
@@ -121,45 +120,31 @@ Wektor Macierz :: operator[] (int b)
 	}
 }
 
-/*Macierz Macierz :: operator* (const Macierz &b)
+Macierz Macierz :: operator* (Macierz &b)
 {
-	Macierz result(this->wier, b.kol);
-	for(int i = 0;i < this->wier; i++)
+	static Macierz result(wier, b.kol);
+	
+	result.wier = 0;
+	result.kol = 0;
+	result.~Macierz();
+	
+	if(this->kol == b.wier)
 	{
-		for(int j = 0;j < b.kol; j++)
+		result.tab = new Wektor* [b.kol];	
+		for(int i = 0;i < b.kol; i++)
 		{
-			for(int k = 0;k < this->kol; k++)
+			result.tab[i] = new Wektor(this->kol);
+			for(int j = 0;j < b.kol; j++)
 			{
-				(*(result.tab[i]))[j] = (*(result.tab[i]))[j] + ((*this)[i][k]) * (b[k][j]);
+				for(int k = 0;k < this->kol; k++)
+				{
+					(*(result.tab[i])).wartosc(k, (*(this->tab[k]))[j] * (*(b.tab[k]))[i] + (*(result.tab[i]))[k]);
+				}
 			}
-		}
+		}	
 	}
-    return result;
+	return result;
 }
-*/
-/*
-Macierz Macierz :: operator* (const Macierz &b)
-{
-	Macierz result(wier, b.kol);
-	if(kol == b.wier)
-	{
-		for(int i = 0; i < wier; i++)
-		{
-			for(int j = 0; j < b.kol; j++)
-			{
-				for(int m = 0;m < kol; m++)
-					*(result.tab[i][j]) = *(result.tab[i][j]) + ((*(tab[i][m])) * (*(b.tab[m][j])));
-			}	
-		}
-		return result;
-	}
-	else
-	{
-		cout << "Podany wymiar macierzy jest zly" << endl;
-		return result;
-	}
-}
-*/
 
 Macierz Macierz :: operator* (int b)
 {
