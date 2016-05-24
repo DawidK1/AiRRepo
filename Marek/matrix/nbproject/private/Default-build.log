@@ -1,4 +1,0 @@
-g++ -Wall -c main.cpp -o main.o
-g++ -Wall -c vector.cpp vector.h
-g++ -Wall -c matrix.cpp matrix.h
-g++ -lm -o matrix main.o vector.o matrix.o
