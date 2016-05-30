@@ -1,8 +1,15 @@
 #include "stack.h"
-
+#include "calc.h"
 int main()
 {
-	cout << "hello" << endl;
+	Calc kalkulator;
+	char input[15];
+	fgets(input, 15, stdin);
+	kalkulator.wejscie(input);
+	
+	
+	
+	/*cout << "hello" << endl;
 	Stack stos (5);
 	int a=0;
 	a = stos.isempty();
@@ -33,5 +40,5 @@ int main()
 	stos.pop();
 	a = stos.top();
 	cout << a << endl;
-	return 0;
+	return 0;*/
 }

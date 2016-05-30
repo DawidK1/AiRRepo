@@ -2,7 +2,7 @@
 #define STACK
 
 #include <iostream>
-#include <string>
+
 using namespace std;
 
 class Stack
@@ -24,6 +24,7 @@ public:
 	void push(int wartosc); //dodaje nowy element na szczyt stosu
 	void pop(); //usuwa element na szczycie stosu
 	void wypisz(); //pokazuje caly stos
+	
 };
 
 #endif
