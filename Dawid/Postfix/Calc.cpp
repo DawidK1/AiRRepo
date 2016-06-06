@@ -3,49 +3,50 @@
 
 Calc::~Calc()
 	{
-	s.~Stack();
+	//s.~Stack();
 	}
 void Calc::getData()
 	{
-	cin >> input;
+	
+	fgets(input, ROZMIAR, stdin);
 	}
 
 bool Calc::decode()
 	{
 	int j = 0;
-	for(int i = 0 ; i < (int)input.length() ; i++)
+	int i;
+	for(i = 0 ; i < (int)strlen(input) ; i++)
 		{
-			if(input[i] == 'q' || input[i] == 'Q')
-				return false;
-			if(input[i] >= '0' && input[i] <= '9')
-				{
-					if(j >= 11)
-						{
-						cout << "Przepełnienie bufora!\n";
-						}
-					else
-						{	
-						buffer[j] = input[i];
-						j++;
-						}
-
-					continue;
-				}
-			if(input[i] == '+' || input[i] == '-' || input[i] == '*')
-				{
-					s.push(calculate(input[i]));
-					continue;
-				}
-			if(input[i] == ' ' && j > 0)
+			if(input[i] == ' ')
 				{
 				buffer[j] = '\0';
 				s.push(atoi(buffer));
 				j = 0;
 				continue;
 				}
-			cout << "Nierozpoznany znak, pomijam!\n";
+
+			if(input[i] == 'q' || input[i] == 'Q')
+				return false;
+
+			if(input[i] >= '0' && input[i] <= '9')
+				{
+					
+				if(j < 11)
+					{
+					buffer[j] = input[i];
+					j++;
+					
+					}
+				continue;
+				}
+
+			if(input[i] == '+' || input[i] == '-' || input[i] == '*')
+				{
+				s.push(calculate(input[i]));	
+				continue;
+				}
+			//else cout << "Nierozpoznany znak, pomijam!\n";
 		}
-	input = "";
 	return true;
 	}
 int Calc::calculate(char op)

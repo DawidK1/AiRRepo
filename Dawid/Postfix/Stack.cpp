@@ -46,7 +46,6 @@ int Stack::top(){
 void Stack::pop(){
 	if(height == 0)
 		{
-		//cout << "stos pusty";
 		return;
 		}
 	if(height == 1)
@@ -60,6 +59,7 @@ void Stack::pop(){
 		int* temp = new int[height - 1];
 		if(temp == NULL)
 			throw bad_alloc();
+
 		memcpy(temp, tab + 1 , (height-1) * sizeof(int));
 		delete[] tab;
 		tab = temp;

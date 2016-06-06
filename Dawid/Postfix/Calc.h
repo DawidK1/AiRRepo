@@ -5,13 +5,14 @@
 #include <string>
 #include <iostream>
 #include <stdlib.h>
+#define ROZMIAR 30
 class Calc{
 
 	private:
 	Stack s;
 	char buffer[12];
 	
-	string input;
+	char input[ROZMIAR];
 
 	int calculate(char op);
 	
