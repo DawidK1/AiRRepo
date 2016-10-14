@@ -5,7 +5,7 @@ void StrType :: MakeEmpty()
 	letters[0]='\0';
 }
 
-void StrType :: GetStringFile(bool skip, IsType charAllowed, std::ifstream& inFile)
+void StrType :: GetStringFile(bool skip, InType charsAllowed, std::ifstream& inFile)
 {
 	switch (charsAllowed)
 	{
