@@ -27,7 +27,7 @@ void GetAlphaNum(bool skip, char letters[], std::ifstream& inFile)
 {
 	using namespace std;
 	char letter;
-	int count=0;
+	int count = 0;
 	if(skip)
 	{
 		inFile.get(letter);
@@ -57,5 +57,42 @@ void GetAlphaNum(bool skip, char letters[], std::ifstream& inFile)
 				inFile.get(letter);
 			}
 			while (isalnum(letter) && inFile);
+	}
+}
+
+void GetAlpha(bool skip, char letters[], std::ifstream& inFile)
+{
+	using namespace std;
+	char letter;
+	int count = 0;
+
+	if(skip)
+	{
+		inFile.get(letter);
+		while(!isalpha(letter) && inFile) //isalpha zwraca zero jezeli znak nie jest litera z alfabetu, w przeciwnym wypadku zwraca wartosc rozna od 0
+			inFile.get(letter);
+	}
+	else
+		inFile.get(letter);
+	
+	if(!inFile || !isalpha(letter)) //nie znaleziono prawidlowego znaku, zwracam pusty string
+		letters[0]='\0';
+	else
+	{
+		do
+		{
+			letters[count]=letter;
+			count++;
+			inFile.get(letter);
+		}
+		while(isalpha(letter) && inFile && (count < MAX_CHARS));
+			letters[count]='\0';
+		//pomin dodatkowe znaki jesli potrzeba
+		if(count == MAX_CHARS && isalpha(letter))
+			do
+			{
+				inFile.get(letter);
+			}
+			while (isalpha(letter) && inFile);
 	}
 }
