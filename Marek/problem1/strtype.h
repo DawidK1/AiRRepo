@@ -4,6 +4,7 @@
 #include <fstream>
 #include <iostream>
 #include <cctype>
+#include <cstring>
 
 const int MAX_CHARS = 100;
 enum InType {ALPHA_NUM, ALPHA, NON_WHITE, NOT_NEW};
@@ -19,8 +20,8 @@ class StrType
   	void PrintToFile(bool newLine, std::ofstream& outFile);
   	int LengthIs();
   	void CopyString(StrType& newString);
-  	
-	private:
+
+	//private:
  	char letters[MAX_CHARS + 1];
 };
 

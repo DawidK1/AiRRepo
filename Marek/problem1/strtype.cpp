@@ -23,6 +23,32 @@ void StrType :: GetStringFile(bool skip, InType charsAllowed, std::ifstream& inF
 	}
 }
 
+void StrType :: PrintToScreen(bool newLine)
+{
+	using namespace std;
+	if(newLine)
+		cout << endl;
+	cout << letters;
+}
+
+void StrType :: PrintToFile(bool newLine, std::ofstream& outFile)
+{
+	using namespace std;
+	if(newLine)
+		outFile << endl;
+	outFile << letters;
+}
+
+int StrType:: LengthIs()
+{//zwraca dlugosc stringa
+	return std::strlen(letters);
+}
+
+void StrType :: CopyString(StrType& newString)
+{
+	std::strcpy(newString.letters, letters);
+}
+
 void GetAlphaNum(bool skip, char letters[], std::ifstream& inFile)
 {
 	using namespace std;
@@ -97,6 +123,42 @@ void GetAlpha(bool skip, char letters[], std::ifstream& inFile)
 	}
 }
 
+void GetNonWhite(bool skip, char letters[], std::ifstream& inFile)
+{
+	using namespace std;
+	char letter;
+	int count = 0;
+
+	if(skip)
+	{ //pomijam znaki biale
+		inFile.get(letter);
+		while((letter == ' ') && inFile)
+			inFile.get(letter);
+	}	
+	else
+		inFile.get(letter);
+
+	if(!inFile || letter == ' ') //nie znaleziono prawidlowego znaku, zwracam pusty string
+		letters[0] = '\0';
+	else
+	{//przeczytaj i zbierz znaki
+		do
+		{
+			letters[count]=letter;
+			count++;
+			inFile.get(letter);
+		}
+		while ((letter != ' ') && inFile && (count < MAX_CHARS));
+		letters[count] = '\0';
+		//pomija dodatkowe znaki
+		if(count == MAX_CHARS && letter != ' ')
+			do
+			{
+				inFile.get(letter);
+			}
+			while ((letter != ' ') && inFile);
+	}
+}
 void GetTilNew(bool skip, char letters[], std::ifstream& inFile)
 {
 	using namespace std;
