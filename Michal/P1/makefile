@@ -4,3 +4,4 @@ main.o: main.cpp
 	g++ -c main.cpp 
 strytype.o: strtype.cpp strtype.h
 	g++ -c strtype.cpp
+	 
