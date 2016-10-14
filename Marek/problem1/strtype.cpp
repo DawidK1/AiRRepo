@@ -22,3 +22,40 @@ void StrType :: GetStringFile(bool skip, IsType charAllowed, std::ifstream& inFi
 		break;
 	}
 }
+
+void GetAlphaNum(bool skip, char letters[], std::ifstream& inFile)
+{
+	using namespace std;
+	char letter;
+	int count=0;
+	if(skip)
+	{
+		inFile.get(letter);
+		while(!isalnum(letter) && inFile) //isalnum zwraca !=0 gdy argument jest znakiem alfanum w innym przypadku zwraca 0
+			inFile.get(letter);
+	}
+	else
+		inFile.get(letter);
+	
+	if(!inFile || !isalnum(letter))
+		//nie znaleziono prawidlowego znaku, zwracam pusty string
+		letters[0]='\0';
+	else
+	{ //przeczytaj plik i pobierz znaki
+		do
+		{
+			letters[count]=letter;
+			count++;
+			inFile.get(letter);
+		}
+		while (isalnum(letter) && inFile && (count < MAX_CHARS));
+			letters[count]='\0';
+		//pomin dodatkowe znaki, ktore sie nie zmiescily
+		if(count == MAX_CHARS && isalnum(letter))
+			do
+			{
+				inFile.get(letter);
+			}
+			while (isalnum(letter) && inFile);
+	}
+}

@@ -3,6 +3,7 @@
 
 #include <fstream>
 #include <iostream>
+#include <cctype>
 
 const int MAX_CHARS = 100;
 enum InType {ALPHA_NUM, ALPHA, NON_WHITE, NOT_NEW};
@@ -22,5 +23,10 @@ class StrType
 	private:
  	char letters[MAX_CHARS + 1];
 };
+
+void GetAlphaNum(bool skip, char letters[], std::ifstream& inFile);
+void GetAlpha(bool skip, char letters[], std::ifstream& inFile);
+void GetNonWhite(bool skip, char letters[], std::ifstream& inFile);
+void GetTilNew(bool skip, char letters[], std::ifstream& inFile);
 
 #endif
