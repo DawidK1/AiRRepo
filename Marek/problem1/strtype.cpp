@@ -96,3 +96,40 @@ void GetAlpha(bool skip, char letters[], std::ifstream& inFile)
 			while (isalpha(letter) && inFile);
 	}
 }
+
+void GetTilNew(bool skip, char letters[], std::ifstream& inFile)
+{
+	using namespace std;
+	char letter;
+	int count = 0;
+	
+	if(skip) //pomin nowe linie
+	{
+		inFile.get(letter);
+		while ((letter=='\n') && inFile)
+			inFile.get(letter);
+	}
+	else
+		inFile.get(letter);
+	
+	if(!inFile || letter == '\n')
+		letters[0]='\0';
+	else //przeczytaj i pobierz znaki
+	{
+		do
+		{
+			letters[count] = letter;
+			count++;
+			inFile.get(letter);
+		}
+		while((letter!='\n') && inFile && (count < MAX_CHARS));
+		letters[count]='\0';
+		//pomin dodatkowe znaki
+		if(count == MAX_CHARS && letter !='\n')
+			do
+			{
+				inFile.get(letter);
+			}
+			while((letter!='\n') && inFile);
+	}
+}
