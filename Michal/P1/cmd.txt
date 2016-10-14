@@ -1,5 +1,33 @@
 MakeEmpty
 PrintToFile
+GetString true NON_WHITE 
+PrintToFile
+GetString true NON_WHITE 
+PrintToFile
+GetString true NON_WHITE 
+PrintToFile
+GetString true NON_WHITE 
+PrintToFile
+GetString true NON_WHITE 
+PrintToFile
+GetString false NON_WHITE 
+PrintToFile
+GetString false NON_WHITE 
+PrintToFile
+GetString false NON_WHITE 
+PrintToFile
+GetString false NON_WHITE 
+PrintToFile
+GetString false NON_WHITE 
+PrintToFile
+GetString false NON_WHITE 
+PrintToFile
+GetString false NON_WHITE 
+PrintToFile
+GetString false NON_WHITE 
+PrintToFile
+GetString false NON_WHITE 
+PrintToFile
 GetString true ALPHA 
 PrintToFile
 GetString true ALPHA 
