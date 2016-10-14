@@ -7,6 +7,8 @@ void StrType::MakeEmpty(){
 
 }
 
+
+
 void StrType::GetString(bool skip, InType charsAllowed){
 
 }
