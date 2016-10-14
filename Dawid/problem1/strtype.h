@@ -1,8 +1,11 @@
  
 
 #include <fstream>
-
 #include <iostream>
+#include <cctype>
+#include <string>
+#include <cstring>
+#include <cstring>
 
 const int MAX_CHARS = 100;
 
