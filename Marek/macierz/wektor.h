@@ -31,7 +31,6 @@ public:
 	void operator*= (const int a);
 	friend ostream& operator<< (ostream& wyjscie, Wektor& b);
 	friend istream& operator>> (istream& wejscie, Wektor& b);
-	
 	void wartosc(int miejsce, int wartosc);
 };
 

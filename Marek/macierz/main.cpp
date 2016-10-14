@@ -25,7 +25,6 @@ int main()
 	if (A == B) cout << "A==B" << endl;
 	if (A != B) cout << "A!=B" << endl;
 	
-	
 	/*int result;
 	Wektor a(3);
 	Wektor b(3);

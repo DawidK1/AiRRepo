@@ -61,6 +61,7 @@ Macierz Macierz :: operator- (const Macierz& b)
 	return c;
 }
 
+
 void Macierz :: operator= (const Macierz&b)
 {
 	if(wier == b.wier && kol == b.kol)
