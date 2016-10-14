@@ -3,7 +3,7 @@
 #include <string>
 #include <cctype>
 #include <cstring>
-#include "StrType.h"
+#include "strtype.h"
 
 
 InType Allowed(std::string& inString);

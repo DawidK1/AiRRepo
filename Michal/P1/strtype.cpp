@@ -1,6 +1,6 @@
 #include <cctype>
 #include <cstring>
-#include "StrType.h"
+#include "strtype.h"
 
 void StrType::MakeEmpty(){
 	letters[0] = '\0';

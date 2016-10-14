@@ -1,32 +1,32 @@
 MakeEmpty
 PrintToFile
-GetString true ALPHA_NUM
+GetString true ALPHA 
 PrintToFile
-GetString true ALPHA_NUM
+GetString true ALPHA 
 PrintToFile
-GetString true ALPHA_NUM
+GetString true ALPHA 
 PrintToFile
-GetString true ALPHA_NUM
+GetString true ALPHA 
 PrintToFile
-GetString true ALPHA_NUM
+GetString true ALPHA 
 PrintToFile
-GetString false ALPHA_NUM
+GetString false ALPHA 
 PrintToFile
-GetString false ALPHA_NUM
+GetString false ALPHA 
 PrintToFile
-GetString false ALPHA_NUM
+GetString false ALPHA 
 PrintToFile
-GetString false ALPHA_NUM
+GetString false ALPHA 
 PrintToFile
-GetString false ALPHA_NUM
+GetString false ALPHA 
 PrintToFile
-GetString false ALPHA_NUM
+GetString false ALPHA 
 PrintToFile
-GetString false ALPHA_NUM
+GetString false ALPHA 
 PrintToFile
-GetString false ALPHA_NUM
+GetString false ALPHA 
 PrintToFile
-GetString false ALPHA_NUM
+GetString false ALPHA 
 PrintToFile
 GetString true NOT_NEW
 PrintToFile
