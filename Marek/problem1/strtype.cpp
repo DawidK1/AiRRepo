@@ -132,13 +132,13 @@ void GetNonWhite(bool skip, char letters[], std::ifstream& inFile)
 	if(skip)
 	{ //pomijam znaki biale
 		inFile.get(letter);
-		while((letter == ' ') && inFile)
+		while(!isspace(letter) && inFile)
 			inFile.get(letter);
 	}	
 	else
 		inFile.get(letter);
 
-	if(!inFile || letter == ' ') //nie znaleziono prawidlowego znaku, zwracam pusty string
+	if(!inFile || !isspace(letter)) //nie znaleziono prawidlowego znaku, zwracam pusty string
 		letters[0] = '\0';
 	else
 	{//przeczytaj i zbierz znaki
@@ -148,7 +148,7 @@ void GetNonWhite(bool skip, char letters[], std::ifstream& inFile)
 			count++;
 			inFile.get(letter);
 		}
-		while ((letter != ' ') && inFile && (count < MAX_CHARS));
+		while (isspace(letter) && inFile && (count < MAX_CHARS));
 		letters[count] = '\0';
 		//pomija dodatkowe znaki
 		if(count == MAX_CHARS && letter != ' ')
