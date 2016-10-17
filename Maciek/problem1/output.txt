@@ -1,0 +1,27 @@
+test
+
+
+rete435
+dsf4554
+dfsdfsdfdfg34345
+dfg
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+length of string  is 0
+String to copy:  Copy of string: 
