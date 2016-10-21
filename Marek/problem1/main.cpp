@@ -3,6 +3,7 @@
 InType Allowed(std::string& inString);
 bool Skip(std::string& inString);
 
+
 int main()
 {
 	using namespace std;
