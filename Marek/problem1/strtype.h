@@ -25,9 +25,15 @@ class StrType
  	char letters[MAX_CHARS + 1];
 };
 
+//dla GetStringFile:
 void GetAlphaNum(bool skip, char letters[], std::ifstream& inFile);
 void GetAlpha(bool skip, char letters[], std::ifstream& inFile);
 void GetNonWhite(bool skip, char letters[], std::ifstream& inFile);
 void GetTilNew(bool skip, char letters[], std::ifstream& inFile);
 
+//dla GetString:
+void GetAlphaNum(bool skip, char letters[], std::istream& inFile);
+void GetAlpha(bool skip, char letters[], std::istream& inFile);
+void GetNonWhite(bool skip, char letters[], std::istream& inFile);
+void GetTilNew(bool skip, char letters[], std::istream& inFile);
 #endif
