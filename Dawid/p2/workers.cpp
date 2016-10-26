@@ -74,6 +74,9 @@ int FulltimeWorker::calc_wage(){
 }
 
 int HourPaidWorker::calc_wage(){
+  if(hoursWorked > OVERTIME)
+    return perHour*(OVERTIME + 1.5 * (hoursWorked - OVERTIME));
+  else
     return perHour * hoursWorked;
 }
 

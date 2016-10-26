@@ -5,6 +5,8 @@
 #include <iostream>
 #include <string>
 
+#define OVERTIME 40
+
 using namespace std;
 
 
