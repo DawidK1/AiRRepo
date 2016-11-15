@@ -3,7 +3,7 @@ all: main
 main: worker.o main.o
 	g++ worker.o main.o -o main
 
-strtype.o: worker.cpp worker.h
+worker.o: worker.cpp worker.h
 	g++ -c -Wall worker.cpp
 
 main.o: main.cpp

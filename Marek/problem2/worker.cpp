@@ -88,7 +88,7 @@ void PartTime :: print()
 
 /* Klasa Traders */
 
-Traders :: Traders(string n, string s, int p, int N, int per_of_sales, int sal)
+Traders :: Traders(string n, string s, int p, int N, float per_of_sales, int sal)
     : Worker(n, s, p, N)
 {
     percent_of_sales=per_of_sales;
