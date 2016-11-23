@@ -5,18 +5,22 @@
 #include <iostream>
 #include <string>
 
+#define OVERTIME 40
+
 using namespace std;
 
 
 class Worker{
 
+ protected:
+  
     string fname;
     string sname;
 
     int PESEL;
     int NIP;
 
-    public:
+  public:
 
     Worker(string f="Nie podano", string s="Nie podano", int P=0, int N=0);
     virtual ~Worker();
