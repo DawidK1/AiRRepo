@@ -20,9 +20,13 @@ public:
     void add(int id, float price = 0);
     void add (const Toy& t);
 
+    string getAdress() const{
+        return _adress;}
+    string getName() const{
+        return _name;}
 
     friend ostream& operator<<(ostream& out , Shop& s);
-
+    friend class Firm;
     ~Shop(){
         ;
     }
