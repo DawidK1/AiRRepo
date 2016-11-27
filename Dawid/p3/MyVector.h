@@ -1,7 +1,8 @@
  #ifndef MYVECTOR_H
  #define MYVECTOR_H
  #include <iostream>
- 
+ #include "Iterator.h"
+
 template <typename T>
 class Vector{
 private:
@@ -9,7 +10,13 @@ private:
     int _actual_size;
     int _max_size;
 
+
+    friend class Iterator < Vector < T > , T >;
+
+
+
 public:
+    typedef Iterator<Vector<T>, T> iter;
     Vector(int max_size= 10);
     Vector(const Vector<T>& src);
 
@@ -28,24 +35,31 @@ public:
     T& operator[](int pos) const;
     Vector<T>& operator= (const Vector<T>& source);
 
+    iter begin() {
+        return(iter(*this));
+    }
+    iter end() {
+        return iter((*this), _actual_size);
+    }
+
 
     ~Vector(){
             delete[] _tab;
     }
 };
 ///////////////////////////////////////////////////////////
-
 template <typename T> Vector<T>::Vector(int max_size){
     if(max_size < 0){
         max_size = 10;
     }
-
+    _actual_size = 0;
     _tab = new T[max_size];
     _max_size = max_size;
 }
 
 template <typename T> Vector<T>::Vector(const Vector<T>& src){
     
+    _actual_size = src._actual_size;
     _max_size = src._max_size;
     _tab = new T[_max_size];
     for(int i = 0; i < _max_size; i++)
@@ -74,7 +88,7 @@ template <typename T>
 void Vector<T>::insert(const T& new_el, int position){
     _actual_size++;
     if(position > _actual_size)
-        position = _actual_size;
+        position = _actual_size -1;
         
     if(_actual_size >= _max_size)
         resize();
@@ -84,8 +98,8 @@ void Vector<T>::insert(const T& new_el, int position){
     T temp2;
     for(int i = position;  i < _actual_size; i++){
         temp2 = _tab[i];
-         _tab[i] = temp1;
-         temp1 = temp2;
+        _tab[i] = temp1;
+        temp1 = temp2;
     }
 
 }
@@ -153,5 +167,6 @@ Vector<T>& Vector<T>::operator= (const Vector<T>& source){
     }
     return *this;
 }
+
 
 #endif

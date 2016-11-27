@@ -37,7 +37,7 @@ Toy::Toy( int id , float price){
 }
 
 
-Toy::Toy( Toy& src){
+Toy::Toy(const Toy& src){
 
     _id = src._id;
     _price = src._price;

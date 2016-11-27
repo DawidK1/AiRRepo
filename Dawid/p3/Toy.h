@@ -21,7 +21,7 @@ private:
 
 public:
     Toy(int id = 0, float price = 0);
-    Toy(Toy& src);
+    Toy(const Toy& src);
 
 
 
