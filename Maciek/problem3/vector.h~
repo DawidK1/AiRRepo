@@ -1,0 +1,261 @@
+#ifndef VECTOR
+#define VECTOR
+using namespace std;
+template <class Type>
+class vector
+{
+	Type * head;
+	int lenght;
+public:
+	vector();
+	vector(int leng);
+	vector(const vector<Type> &copy);
+	~vector();
+	void add(int place, Type el);
+	void remove(int place);
+	void change_lenght(int new_lenght);
+	void clear();
+	int size();
+	vector operator + (const vector &b);
+	void operator = (const vector &b);
+	void operator += (const vector &b);
+	bool operator == (const vector &b);
+	bool operator != (const vector &b);
+	Type* operator [] (int place);
+
+};
+
+template <class Type>
+vector<Type>::vector()
+{
+	head = NULL;
+	lenght = 0;
+	cout<< "konstruktor" <<endl;
+}
+
+
+
+template <class Type>
+vector<Type>::vector(int leng)
+{
+	lenght = leng;
+	head = new Type*[lenght];
+}
+
+
+
+template <class Type>
+vector<Type>::vector(const vector<Type> &copy)
+{
+	lenght = copy.size();
+	head = new Type*[copy.size()];
+	int i;
+	for(i = 0; i < lenght; i++) 
+	{
+		head[i] = copy[i];
+	}
+}
+
+
+
+template <class Type>
+vector<Type>::~vector ()
+{
+	delete[] head;
+	head = NULL;
+	cout<<"destruktor" << endl;
+}
+
+
+
+template <class Type>
+void vector<Type>::add(int place, Type el)
+{
+	change_lenght(lenght+1);
+	int i;
+	for(i = lenght+1; i > place; i--)
+	{
+		head[i] = head[i-1];
+	}
+	head[place] = el;
+	return;
+}
+
+
+
+template <class Type>
+void vector<Type>::remove(int place)
+{
+	int i;
+	for(i = place; i<=lenght; i++)
+	{
+		head[i] = head[i+1];
+	}
+	change_lenght(lenght-1);
+	return;
+}
+
+
+
+template <class Type>
+void vector<Type>::change_lenght(int new_lenght)
+{
+	int i;
+	if(new_lenght > lenght)
+	{
+		Type * indic;
+		for(i = 0; i < lenght; i++)
+		{
+			indic[i] = head[i];
+		}
+		clear();
+		head = new Type [new_lenght];
+		for(i = 0; i < lenght; i++)
+		{
+			head[i] = indic[i];
+		}
+		for(i = lenght; i < new_lenght; i++)
+		{
+			&(head[i]) = NULL;
+		}
+		delete[] indic;
+		lenght = new_lenght;
+		return;
+	}
+	else if(new_lenght < lenght)
+	{
+		Type* indic;
+		for(i = 0; i < new_lenght; i++)
+		{
+			indic[i] = head[i];
+		}
+		clear();
+		head = new Type[new_lenght];
+		for(i = 0; i < lenght; i++)
+		{
+			head[i] = indic[i];
+		}
+		delete[] indic;
+		lenght = new_lenght;
+		return;
+	}
+	else
+	{
+		cout << "Ten sam rozmiar" << endl;
+		return;
+	}
+}
+
+
+
+template <class Type>
+void vector<Type>::clear()
+{
+	delete[] head;
+	head = NULL;
+	return;
+}
+
+
+
+template <class Type>
+int vector<Type>::size()
+{
+	return lenght;
+}
+
+
+
+template <class Type>
+vector<Type> vector<Type>::operator + (const vector &b)
+{
+	vector c(lenght + b.size());
+	int i;
+	for(i = 0; i<lenght; i++)
+	{
+		c.add(i, head[i]);
+	}
+	for(i = lenght; i < lenght+c.size(); i++)
+	{
+		c.add(i, b[i]);
+	}
+	return c;
+}
+
+
+
+template <class Type>
+void vector<Type>::operator = (const vector& b)
+{
+	change_lenght(b.size());
+	int i;
+	for(i = 0; i<b.size(); i++)
+	{
+		head[i] = b[i];
+	}
+	return;
+}
+
+
+
+template <class Type>
+void vector<Type>::operator +=(const vector&b)
+{
+	change_lenght(lenght + b.size());
+	int i;
+	for(i = lenght; i < lenght+b.size(); i++)
+	{
+		head[i] = b[i];
+	}
+	return;
+}
+
+
+
+template <class Type>
+bool vector<Type>::operator == (const vector& b)
+{
+	int i;
+	if(lenght != b.size())
+	{
+		return false;
+	}
+	for(i = 0; i < lenght; i++)
+	{
+		if(*(head[i]) != *(b[i]))
+		{
+			return false;
+		}
+	}
+	return true;
+}
+
+
+
+template <class Type>
+bool vector<Type>::operator != (const vector& b)
+{
+	int i;
+	if(lenght != b.size())
+	{
+		return true;
+	}
+	for(i = 0; i < lenght; i++)
+	{
+		if(*(head[i]) != *(b[i]))
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+
+
+template <class Type>
+Type* vector<Type>::operator [](int place)
+{
+	return head[place];
+}
+
+#endif

@@ -1,0 +1,5 @@
+jojo 12.3
+lalka 20.5
+pilka 5.4
+domek 56.7
+baczek 20.4

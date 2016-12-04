@@ -1,0 +1,5 @@
+domek 12.3
+lalka 20.5
+mis 5.4
+auto 56.7
+klocki 20.4
