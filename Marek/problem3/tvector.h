@@ -21,6 +21,11 @@ public:
     void push_back(const T& inElement);
     void pop_back();
 
+    int current_size() const;
+    int maximum_size() const;
+    bool isempty() const;
+    bool isfull() const;
+
     T& operator[] (int pos) const;
     Vector<T>& operator= (const Vector<T>& source);
 
@@ -39,6 +44,7 @@ Vector<T>::Vector(int msize) : size(0), max_size(msize)
 template <typename T>
 Vector<T>::Vector(const Vector<T>& source)
 {
+    size = source.size;
     max_size = source.max_size;
     tab = new T[max_size];
     for(int i = 0; i < max_size; i++)
@@ -114,6 +120,36 @@ void Vector<T>::pop_back()
 }
 
 template <typename T>
+int Vector<T>::current_size() const
+{
+    return size;
+}
+
+template <typename T>
+int Vector<T>::maximum_size() const
+{
+    return max_size;
+}
+
+template <typename T>
+bool Vector<T>::isempty() const
+{
+    if(size == 0)
+        return true;
+    else
+        return false;
+}
+
+template <typename T>
+bool Vector<T>::isfull() const
+{
+    if(size == max_size)
+        return true;
+    else
+        return false;
+}
+
+template <typename T>
 T& Vector<T>::operator[] (int pos) const
 {
     if( pos > size || pos < 0)
@@ -142,4 +178,4 @@ Vector<T>& Vector<T>::operator= (const Vector<T>& source)
     return *this;
 }
 
-#endif 
+#endif
