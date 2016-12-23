@@ -22,7 +22,7 @@ int main()
     return 0;
     */
 
-    Toy t1(2, 7.50);
+    Toy t1(0, 7.50);
     Toy t2(3,5);
     Toy t3(1,3.33);
     Shop s1("Samochodzik", "ul. Dluga 10");
@@ -37,6 +37,8 @@ int main()
     s2.add(t1);
     s2.add(t2);
     s2.add(t2);
+    f1.add(s1);
+    f1.add(s2);
     f1.ShowAll();
 
     return 0;

@@ -20,7 +20,7 @@ ostream& operator << (ostream& out, Firm& f){
 }
 
 void Firm::ShowAll(){
-        cout << "Nazwa firmy: " <<_name << endl;
+    cout << "Nazwa firmy: " <<_name << endl;
     cout << "Posiadane sklepy: " << endl;
     Iterator<Vector<Shop>, Shop> it = _shoplist.begin();
 
