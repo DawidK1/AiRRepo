@@ -3,7 +3,7 @@
 
 using namespace std;
 
-#include <iostream<main>
+#include <iostream>
 #include <fstream>
 #include "tvector.h"
 
@@ -25,3 +25,5 @@ public:
     friend ostream& operator<<(ostream& out, const Toy& t);
     ~Toy();
 };
+
+#endif

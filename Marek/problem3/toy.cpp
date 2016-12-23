@@ -43,7 +43,7 @@ Toy::~Toy()
 }
 
 string Toy::name() const{
-    if(_if != -1)
+    if(_id != -1)
         return _toylist[_id];
     else
         return "Brak wprowadzonej nazwy";

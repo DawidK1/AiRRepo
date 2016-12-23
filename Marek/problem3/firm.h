@@ -16,4 +16,6 @@ public:
     void add(const Shop& s);
     void ShowAll();
     friend ostream& operator << (ostream& out, Firm& f);
-}
+};
+
+#endif 

@@ -20,7 +20,7 @@ void Shop::add(const Toy& src)
 
 ostream& operator << (ostream& out, Shop& s)
 {
-    Iterator <Vector<Toy>, Toy> it = s._storage.begin();
+    Iterator <Vector<Toy>,Toy> it = s._storage.begin();
 
     out << "Nazwa sklepu: " << s._name << endl;
 

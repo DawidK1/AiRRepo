@@ -20,7 +20,7 @@ public:
     string getAdress() const{
         return _adress;
     }
-    string getName() cosnt{
+    string getName() const{
         return _name;
     }
 
@@ -29,3 +29,5 @@ public:
 
     ~Shop(){}
 };
+
+#endif
