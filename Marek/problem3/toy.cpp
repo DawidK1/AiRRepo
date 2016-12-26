@@ -63,7 +63,7 @@ void Toy::load_from_file(){
 }
 
 ostream& operator << (ostream& out, const Toy& t){
-    out << "Nazwa zabawki: " << t.name() << " cena: " << t._price << endl;
+    out << "-" << t.name() << "\t" << " cena: " << t._price << endl;
     return out;
 }
 

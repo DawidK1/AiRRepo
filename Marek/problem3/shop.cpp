@@ -27,7 +27,7 @@ ostream& operator << (ostream& out, Shop& s)
     out << "asortyment: " << endl;
     while(it != s._storage.end())
     {
-        out << *it << endl;
+        out << "\t" << *it ;
         it++;
     }
 
