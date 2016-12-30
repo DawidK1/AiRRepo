@@ -49,7 +49,7 @@ int main()
 	vector<shop> shops;
 	shops.add(s1);
 	shops.add(s2);
-	company firm("Firma",shops);
+	company firm("Najlepsze zabawki",shops);
 	cout<< firm << endl;
 	
 	return 0;
