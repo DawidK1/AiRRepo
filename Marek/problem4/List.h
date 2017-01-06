@@ -106,14 +106,14 @@ void List<DT> :: remove()
 		cursor = ptr;
 	}
 	else	
-		throw logic_error();
+		throw logic_error("logic_error");
 }
 
 template <class DT>
 void List<DT> :: replace(const DT &newDataItem)
 {
 	if(cursor == NULL)
-		throw logic_error();
+		throw logic_error("logic_error");
 	
 	cursor->dataItem = newDataItem;
 }
@@ -159,7 +159,7 @@ template <class DT>
 void List<DT> :: gotoBeginning()
 {
 	if (cursor == NULL)
-		throw logic_error();
+		throw logic_error("logic_error");
 	cursor = head;
 }
 
@@ -167,7 +167,7 @@ template <class DT>
 void List<DT> :: gotoEnd()
 {
 	if(cursor == NULL)
-		throw logic_error();
+		throw logic_error("logic_error");
 	cursor = head -> prior;
 }
 
@@ -175,7 +175,7 @@ template <class DT>
 void List<DT> :: gotoNext()
 {
 	if(cursor == NULL)
-		throw logic_error();
+		throw logic_error("logic_error");
 	cursor = cursor -> next;
 }
 
@@ -183,7 +183,7 @@ template <class DT>
 void List<DT> :: gotoPrior()
 {
 	if(cursor == NULL)
-		throw logic_error();
+		throw logic_error("logic_error");
 	cursor = cursor -> prior;
 }
 
@@ -191,8 +191,8 @@ template <class DT>
 DT List<DT> :: getCursor() const
 {
 	if(cursor == NULL)
-		throw logic_error();
-	cursor = cursor -> dataItem;
+		throw logic_error("logic_error");
+	return cursor -> dataItem;
 }
 
 template <class DT>
