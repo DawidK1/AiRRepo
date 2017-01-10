@@ -15,8 +15,7 @@ int main()
     {
         Puzzle A(answ, init);
         A.display();
-        A.reverse();
-        A.display();
+        
         while(x == 0)
         {
             if(A.isSolved() == true)
