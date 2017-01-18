@@ -11,6 +11,7 @@ using namespace std;
 typedef multimap <int, string, less<int> > mp_type;
 int main()
 {
+    cout << "Marek Piekarz, AGH AiR II rok" << endl << endl;
     cout << "ZADANIE A - VECTOR" << endl << endl;
    
     vector<int> v;
@@ -35,7 +36,7 @@ int main()
 
     // display info about v
     cout << "The size of v is: " << v.size() << "\nThe capacity of v is: " << v.capacity();
-    vector<int>::const_iterator it;
+    vector<int>::iterator it;
     cout << "\nThe content of v is: ";
 
     for (it = v.begin(); it != v.end(); it++)

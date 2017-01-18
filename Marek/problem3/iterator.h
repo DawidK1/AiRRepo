@@ -30,7 +30,7 @@ public:
 
     obj_T& operator* ()
     {
-        if( (_pos >= 0) & (_pos < _container._actual_size))
+        if( (_pos >= 0) && (_pos < _container._actual_size))
             return _container._tab[_pos];
         else
         {
@@ -41,7 +41,7 @@ public:
 
     bool operator == (const Iterator& i2)
     {
-        if(( &_container != &i2._container) | (_pos != i2._pos))
+        if(( &_container != &i2._container) || (_pos != i2._pos))
             return false;
         else
             return true;

@@ -4,6 +4,9 @@
 using namespace std;
 
 template <class DT>
+class List;
+
+template <class DT>
 class ListNode 
 {
 	ListNode(const DT &data, ListNode *priorPtr, ListNode *nextPtr);

@@ -11,7 +11,7 @@ private:
     string _adress;
     string _name;
 public:
-    Shop(string name = "brak nazwy", string adress = "brak",
+    Shop(string name = "brak nazwy sklepu", string adress = "brak adresu",
         const Vector<Toy> & t = Vector<Toy>(5));
 
     void add(int id, float price = 0);
