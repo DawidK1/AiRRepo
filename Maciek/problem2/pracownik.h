@@ -33,6 +33,7 @@ public:
 	staly (const pracownik & osoba, int placa);
 	virtual void print();
 	virtual float wylicz_zarobki();
+	~staly();
 };
 
 
@@ -51,6 +52,7 @@ public:
 	virtual float wylicz_zarobki();
 	int podaj_stawke();
 	int podaj_godziny();
+	~zlecenie();
 };
 
 
@@ -70,6 +72,7 @@ public:
 	virtual float wylicz_zarobki();
 	int podaj_sprzedaz();
 	int podaj_procent();
+	~handel();
 };
 
 

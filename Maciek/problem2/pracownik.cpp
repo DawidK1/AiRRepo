@@ -45,6 +45,7 @@ float pracownik :: wylicz_zarobki() {
 }
 
 pracownik :: ~pracownik() {
+	cout << "prac"<< endl;
 }
 
 // metody do staly
@@ -67,6 +68,11 @@ void staly :: print() {
 
 float staly :: wylicz_zarobki() {
 	return pensja;
+}
+
+staly::~staly()
+{
+	cout << "staly"<< endl;
 }
 
 
@@ -112,6 +118,11 @@ int zlecenie :: podaj_godziny() {
 	return godziny;
 }
 
+zlecenie::~zlecenie()
+{
+	cout << "zlecenie"<< endl;
+}
+
 // metody do procent
 
 
@@ -148,7 +159,10 @@ int handel :: podaj_procent() {
 }
 
 
-
+handel::~handel()
+{
+	cout << "handel"<< endl;
+}
 
 
 
