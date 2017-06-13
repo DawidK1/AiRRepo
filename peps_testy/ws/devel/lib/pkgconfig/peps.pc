@@ -1,0 +1,8 @@
+prefix=/home/dawid/Pulpit/peps_testy/ws/devel
+
+Name: peps
+Description: Description of peps
+Version: 0.0.0
+Cflags: -I/home/dawid/Pulpit/peps_testy/ws/devel/include
+Libs: -L/home/dawid/Pulpit/peps_testy/ws/devel/lib 
+Requires: message_runtime roscpp rospy std_msgs geometry_msgs

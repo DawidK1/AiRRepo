@@ -1,0 +1,2 @@
+peps
+-DCATKIN_DEVEL_PREFIX=/home/dawid/Pulpit/peps_testy/ws/devel -DCMAKE_INSTALL_PREFIX=/home/dawid/Pulpit/peps_testy/ws/install -G Unix Makefiles

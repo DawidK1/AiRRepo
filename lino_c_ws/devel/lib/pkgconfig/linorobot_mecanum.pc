@@ -1,0 +1,8 @@
+prefix=/home/dawid/Pulpit/lino_c_ws/devel
+
+Name: linorobot_mecanum
+Description: Description of linorobot_mecanum
+Version: 1.0.0
+Cflags: 
+Libs: -L/home/dawid/Pulpit/lino_c_ws/devel/lib 
+Requires: 

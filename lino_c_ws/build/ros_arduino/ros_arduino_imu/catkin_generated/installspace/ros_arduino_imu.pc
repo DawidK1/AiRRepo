@@ -1,0 +1,8 @@
+prefix=/home/dawid/Pulpit/lino_c_ws/install
+
+Name: ros_arduino_imu
+Description: Description of ros_arduino_imu
+Version: 0.0.0
+Cflags: -I/home/dawid/Pulpit/lino_c_ws/install/include
+Libs: -L/home/dawid/Pulpit/lino_c_ws/install/lib 
+Requires: roscpp sensor_msgs geometry_msgs ros_arduino_msgs

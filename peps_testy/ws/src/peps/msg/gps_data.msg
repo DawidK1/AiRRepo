@@ -1,0 +1,2 @@
+geometry_msgs/Point beacon_1
+geometry_msgs/Point beacon_2

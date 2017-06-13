@@ -1,0 +1,2 @@
+http://wiki.ros.org/neo_gazebo_plugins   -   Mecanum wheel for Gazebo
+http://research.ijcaonline.org/volume113/number3/pxc3901586.pdf    -   Mecanum wheel kinematic
